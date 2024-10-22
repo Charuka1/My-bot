@@ -85,4 +85,4 @@ const vid = await subsearch(q)
     for (let i of vid.results ) {
         yt += `📃 *${i.no} - ${i.title}*\n🔗 _Link : ${i.link}_ \n\n\n`
     }
- await conn.sendMessage(from,{image:{url: "https://telegra.ph/file/ba8ea739e63bf28c30b37.jpg" },caption: yt + "*Qᴜᴇᴇɴ-ɪᴢᴜᴍɪ-ᴍᴅ ᴡʜᴀᴛꜱᴀᴘᴘ ᴜꜱᴇʀ ʙᴏᴛ*\n*ᴘᴏᴡᴇʀᴇᴅ"},{quoted:mek})
+ await conn.sendMessage(from,{image:{url: "https://telegra.ph/file/ba8ea739e63bf28c30b37.jpg" },caption: yt},{quoted:mek})
