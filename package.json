@@ -17,6 +17,7 @@
     "util": "^0.12.4",
     "express": "latest",
 "file-type": "^16.5.3",
+    "google-tts-api": "^2.0.2",
 "file_size_url": "^1.0.4",
 "cheerio": "^1.0.0-rc.12",
 "ios-news": "^1.0.0",  
