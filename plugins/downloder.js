@@ -130,7 +130,7 @@ reply(e)
 
 // MEDIAFIRE DOWNLOAD COMMAND
 
-const apilink = 'https://dark-yasiya-api-new.vercel.app' // API LINK ( DO NOT CHANGE THIS!! )
+const apilink = 'https://dark-yasiya-api-new.vercel.app'
 
 
 cmd({
