@@ -14,6 +14,7 @@ const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, 
 const fs = require('fs')
 const P = require('pino')
 const config = require('./setting')
+const X = require("./setting.js")
 const qrcode = require('qrcode-terminal')
 const util = require('util')
 const { sms,downloadMediaMessage } = require('./lib/msg')
