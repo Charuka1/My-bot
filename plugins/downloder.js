@@ -1,6 +1,5 @@
 const config = require('../setting')
 const { cmd, commands } = require('../command')
-const { fetchJson } = require('../lib/functions')
 const fg = require('api-dylux');
 const { mediafireDl } = require('mfiredlcore-vihangayt')
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')	
