@@ -12,7 +12,6 @@ Browsers
 const l = console.log
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson } = require('./lib/functions')
 const fs = require('fs')
-const apkdl = require(`apkdl`)
 const P = require('pino')
 const config = require('./setting')
 const qrcode = require('qrcode-terminal')
