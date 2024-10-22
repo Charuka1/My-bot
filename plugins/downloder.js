@@ -1,5 +1,6 @@
 const config = require('../setting')
 const { cmd, commands } = require('../command')
+const fs = require('fs')
 const fg = require('api-dylux');
 const { mediafireDl } = require('mfiredlcore-vihangayt')
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')	
@@ -124,6 +125,107 @@ await conn.sendMessage(from, { audio: { url: tiktok.result.sound }, mimetype: "a
 } catch (e) {
 console.log(e)
 reply(e)
+}
+})
+
+// MEDIAFIRE DOWNLOAD COMMAND
+
+const apilink = 'https://dark-yasiya-api-new.vercel.app' // API LINK ( DO NOT CHANGE THIS!! )
+
+
+cmd({
+    pattern: "mfire",
+    alias: ["mf","mediafire"],
+    react: "🔥",
+    desc: "",
+    category: "download",
+    use: '.mfire < mediafire url >',
+    filename: __filename
+},
+async(conn, mek, m,{from, quoted, reply, q }) => {
+try{
+  
+if(!q) return await reply("Please give me mediafire url");
+  if(!q.includes('mediafire.com')) return await reply("This url is invalid");
+  
+const mfire = await fetchJson(`${apilink}/download/mfire?url=${q}`);
+  
+const msg = `
+           🔥 *MEDIAFIRE DOWNLOADER* 🔥
+
+
+• *File Name* - ${mfire.result.fileName}
+
+• *File Size* - ${mfire.result.size}
+
+• *Upload Date and Time* - ${mfire.result.date}
+
+`
+  
+// SEND DETAILS
+await conn.sendMessage( from, { image: { url: 'https://i.ibb.co/dPw1fHD/mfire.jpg' }, caption: msg }, { quoted: mek });
+
+// SEND FILE
+await conn.sendMessage(from, { document: { url: mfire.result.dl_link }, mimetype: mfire.result.fileType , fileName: mfire.result.fileName, caption: mfire.result.fileName }, { quoted: mek });
+
+  
+} catch (e) {
+console.log(e)
+reply('This url type is not working !!')
+}
+})
+
+
+
+
+cmd({
+  pattern: "fb",
+  react: "🔓",
+  category: "download",
+  filename: __filename
+},
+async(conn, mek, m,{from, l, quoted, body, prefix, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+try{
+if (!args[0]) {
+        throw ` Please send the link of a Facebook video\n\nEXAMPLE :\n *${prefix + command}* https://fb.watch/7B5KBCgdO3`;
+    }
+
+    const urlRegex = /^(?:https?:\/\/)?(?:www\.)?(?:facebook\.com|fb\.watch)\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i;
+    if (!urlRegex.test(args[0])) {
+        throw '⚠️ PLEASE GIVE A VALID URL.';
+    }
+     await reply(`Please wait...`);
+    
+        const result = await fg.fbdl(args[0]);
+        const tex = `
+  *Video Details* 
+📽️ *Title*: ${result.title}
+`;
+
+
+        const response = await fetch(result.videoUrl);
+        const arrayBuffer = await response.arrayBuffer();
+        const videoBuffer = Buffer.from(arrayBuffer);
+
+        // Save the videoBuffer to a temporary file
+        const randomName = `temp_${Math.floor(Math.random() * 10000)}.mp4`;
+        fs.writeFileSync(`./${randomName}`, videoBuffer);
+
+        // Send the video using client.sendMessage
+        await conn.sendMessage(
+            from,
+            {
+                video: fs.readFileSync(`./${randomName}`),
+                caption: tex,
+            },
+            { quoted: mek }
+        );
+
+        fs.unlinkSync(`./${randomName}`);
+    } catch (e) {
+        console.log(e);
+        reply('⚠️ An error occurred while processing the request. Please try again later.');
+l(e)
 }
 })
 
