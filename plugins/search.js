@@ -1,4 +1,5 @@
 const config = require('../setting')
+const axios = require('axios')
 const { cmd, commands } = require('../command')
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')
 var {subsearch , subdl }  = require('@sl-code-lords/si-subdl')
@@ -28,7 +29,7 @@ try{
  ${res.TITLE}\n\n*┃◉* *⇨ ᴅᴀᴛᴇ :*
  ${res.PUBLISHED}\n\n*┃◉* *⇨ ᴜʀʟ :*
  ${res.URL}\n\n*┃◉* *⇨ Description :*
- ${res.DESCRIPTION}\n\n*𝙿𝙾𝚆𝙴𝚁𝙳 𝙱𝚈 𝙼𝚁 𝙺𝙰𝚂𝚄𝙽 ®*\n\n`},
+ ${res.DESCRIPTION}\n\n*𝙿𝙾𝚆𝙴𝚁𝙳 𝙱𝚈 𝙼𝚁 𝙼𝙸𝚉𝚄𝙺𝙸 𝙼𝙳 ®*\n\n`},
 			{ quoted: mek });
 await conn.sendMessage(from, { react: { text: `✅`, key: mek.key }}) 
 } catch (e) {
@@ -52,7 +53,7 @@ try{
 if (!q) return reply("❗ *Please enter movie name to download Subtitles*")
 const duka = await subsearch(q)
 const latest = await subdl(duka.results[0].link)
-const maru =`*MR-KASUN-MD SINHALA SUB DOWNLOADER*
+const maru =`*MIZUKI-MD SINHALA SUB DOWNLOADER*
 
 📊 *Movie Title - ${latest.results.title}*
 
@@ -66,6 +67,82 @@ const maru =`*MR-KASUN-MD SINHALA SUB DOWNLOADER*
 } catch (e) {
 reply('🚫 *Error Accurated !!*\n\n' + e )
 l(e)
+}
+})
+
+// NEW ADDED NEWS SITE [ BBC , LANKADEEPA ]
+
+
+const apilink = 'https://dark-yasiya-news-apis.vercel.app/api' // API LINK ( DO NOT CHANGE THIS!! )
+
+
+// ================================LANKADEEPA NEWS========================================
+
+cmd({
+    pattern: "lankadeepanews",
+    alias: ["lankadeepa","news4"],
+    react: "🕵️‍♂️",
+    desc: "",
+    category: "news",
+    use: '.lankadeepanews',
+    filename: __filename
+},
+async(conn, mek, m,{from, quoted, reply }) => {
+try{
+
+const news = await fetchJson(`${apilink}/lankadeepa`)
+  
+const msg = `
+           🕵️‍♂️ *LANKADEEPA NEWS* 🕵️‍♂️
+
+       
+• *Title* - ${news.result.title}
+
+• *News* - ${news.result.desc}
+
+• *Date* - ${news.result.date}
+
+• *Link* - ${news.result.url}`
+
+
+await conn.sendMessage( from, { image: { url: news.result.image || '' }, caption: msg }, { quoted: mek })
+} catch (e) {
+console.log(e)
+reply(e)
+}
+})
+
+// ================================BBC NEWS========================================
+
+cmd({
+    pattern: "bbcnews",
+    alias: ["bbc","news5"],
+    react: "⛩",
+    desc: "",
+    category: "news",
+    use: '.bbcnews',
+    filename: __filename
+},
+async(conn, mek, m,{from, quoted, reply }) => {
+try{
+
+const news = await fetchJson(`${apilink}/bbc`)
+  
+const msg = `
+           ⛩ *BBC NEWS* ⛩
+
+       
+• *Title* - ${news.result.title}
+
+• *News* - ${news.result.desc}
+
+• *Link* - ${news.result.url} `
+
+
+await conn.sendMessage( from, { image: { url: news.result.image || '' }, caption: msg }, { quoted: mek })
+} catch (e) {
+console.log(e)
+reply(e)
 }
 })
 
