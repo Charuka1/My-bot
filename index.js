@@ -18,11 +18,12 @@ const X = require("./setting.js")
 const qrcode = require('qrcode-terminal')
 const util = require('util')
 const { sms,downloadMediaMessage } = require('./lib/msg')
+const serialize = require('./serialize');
+const {sendCard, commands, sendFirstMessage, binarySearch} = require('./handler');
 const axios = require('axios')
 const { File } = require('megajs')
 
- const _0x3f58e7 = global.owner,
-    _0x4498df = global.owner
+const ownerNumber = ['94775228949']
 
 //===================SESSION-AUTH============================
 if (!fs.existsSync(__dirname + '/auth_info_baileys/creds.json')) {
