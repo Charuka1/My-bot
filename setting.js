@@ -14,5 +14,5 @@ OMDB_API_KEY: process.env.OMDB_API_KEY="76cb7f39",
 OWNER_NAME: process.env.OWNER_NAME || "mr charuka",
 BOT_NAME: process.env.BOT_NAME || "mizuki md",
 FOOTER:process.env.FOOTER || "ᴍɪᴢᴜᴋɪ ᴍᴅ",
-OWNER_NUMBER:process.env.OWNER_NUMBER || "94775228949",
+global.owner = process.env.OWNER_NUMBER || '94775228949',
 };
