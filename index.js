@@ -21,7 +21,8 @@ const { sms,downloadMediaMessage } = require('./lib/msg')
 const axios = require('axios')
 const { File } = require('megajs')
 
-const ownerNumber = setting.OWNER_NUMBEER;
+ const _0x3f58e7 = global.owner,
+    _0x4498df = global.owner
 
 //===================SESSION-AUTH============================
 if (!fs.existsSync(__dirname + '/auth_info_baileys/creds.json')) {
