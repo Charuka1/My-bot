@@ -1,7 +1,5 @@
 const config = require('../config')
 const { cmd, commands } = require('../command')
-const serialize = require('./lib/serialize');
-const {sendCard, commands, sendFirstMessage, binarySearch} = require('./lib/handler');
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')
 let needus = "*Please give me a fb url!*" 
 
