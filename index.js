@@ -7,6 +7,7 @@ getContentType,
 fetchLatestBaileysVersion,
 Browsers
 } = require('@whiskeysockets/baileys')
+} = require('@bochilteam/scraper')
 
 
 const l = console.log
