@@ -6,7 +6,7 @@ jidNormalizedUser,
 getContentType,
 fetchLatestBaileysVersion,
 Browsers
-} = require('@bochilteam/scraper')
+} = require('@whiskeysockets/baileys')
 
 
 
