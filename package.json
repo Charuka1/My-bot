@@ -51,6 +51,7 @@
     "api-dylux":"1.8.5",
     "mongoose":"8.6.3",
     "mumaker":"2.0.0",
-    "sinhalasub.lk":"9.0.0"
+    "sinhalasub.lk":"9.0.0",
+    "ytsearch-venom":"1.0.0"
   }
 }
