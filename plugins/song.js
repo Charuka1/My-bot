@@ -1,4 +1,4 @@
-const config = require('../config')
+const config = require('../setting')
 const dl = require('@bochilteam/scraper') 
 const fs = require('fs')
 const {
