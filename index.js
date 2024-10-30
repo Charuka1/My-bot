@@ -9,16 +9,14 @@ Browsers
 } = require('@whiskeysockets/baileys')
 
 
-
 const l = console.log
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson } = require('./lib/functions')
 const fs = require('fs')
 const P = require('pino')
-const dl = require('@bochilteam/scraper')
 const config = require('./setting')
-const X = require("./setting.js")
 const qrcode = require('qrcode-terminal')
 const util = require('util')
+const { sms,downloadMediaMessage } = require('./lib/msg')
 const axios = require('axios')
 const { File } = require('megajs')
 
