@@ -4,7 +4,7 @@ const config = require('../setting')
 cmd({
     pattern: "downmenu",
     react: "⬇👨‍💻",
-    dontAddCommandList: true,
+    category: "download",
     filename: __filename
 },
 async(conn, mek, m,{from, prefix, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
@@ -51,7 +51,7 @@ let generatebutton = [{
 cmd({
     pattern: "searchmenu",
     react: "👨‍💻",
-    dontAddCommandList: true,
+    category: "download",
     filename: __filename
 },
 async(conn, mek, m,{from, prefix, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
@@ -97,7 +97,7 @@ let generatebutton = [{
 cmd({
     pattern: "convertmenu",
     react: "👨‍💻",
-    dontAddCommandList: true,
+    category: "download",
     filename: __filename
 },
 async(conn, mek, m,{from, prefix, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
@@ -144,7 +144,7 @@ let generatebutton = [{
 cmd({
     pattern: "logomenu",
     react: "👨‍💻",
-    dontAddCommandList: true,
+    category: "download",
     filename: __filename
 },
 async(conn, mek, m,{from, prefix, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
@@ -190,7 +190,7 @@ let generatebutton = [{
 cmd({
   pattern: "ownermenu",
   react: "👨‍💻",
-  dontAddCommandList: true,
+  category: "download",
   filename: __filename
 },
 async(conn, mek, m,{from, prefix, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
@@ -237,7 +237,7 @@ l(e)
 cmd({
   pattern: "adminmenu",
   react: "👨‍💻",
-  dontAddCommandList: true,
+  category: "download",
   filename: __filename
 },
 async(conn, mek, m,{from, prefix, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
@@ -283,7 +283,7 @@ l(e)
 cmd({
   pattern: "othermenu",
   react: "👨‍💻",
-  dontAddCommandList: true,
+  category: "download",
   filename: __filename
 },
 async(conn, mek, m,{from, prefix, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
