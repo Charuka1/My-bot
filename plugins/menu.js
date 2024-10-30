@@ -11,7 +11,7 @@ async(conn, mek, m,{from, prefix, l, quoted, body, isCmd, command, args, q, isGr
 try{
 let menuc = `*● ══════════════ ●*
 
-   *QUEEN-IZUMI-MD DOWNLOAD COMMANDS MENU*\n\n`
+   *MIZUKK-MD DOWNLOAD COMMANDS MENU*\n\n`
 for (let i=0;i<commands.length;i++) { 
 if(commands[i].category === 'download'){
   if(!commands[i].dontAddCommandList){
@@ -58,7 +58,7 @@ async(conn, mek, m,{from, prefix, l, quoted, body, isCmd, command, args, q, isGr
 try{
 let menuc = `*● ══════════════ ●*
 
-   *QUEEN-IZUMI-MD SEARCH COMMANDS MENU*\n\n`
+   *MIZUKI-MD SEARCH COMMANDS MENU*\n\n`
 for (let i=0;i<commands.length;i++) { 
 if(commands[i].category === 'search'){
   if(!commands[i].dontAddCommandList){
