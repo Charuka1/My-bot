@@ -1,5 +1,5 @@
  const config = require('../setting')
-const { cmd, commands } = require('../command')
+const { cmd, commands } = require('../lib/command')
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')	
 const googleTTS = require("google-tts-api");
 const { Sticker, createSticker, StickerTypes } = require("wa-sticker-formatter");
