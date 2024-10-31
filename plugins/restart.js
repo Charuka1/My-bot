@@ -1,5 +1,5 @@
 const config = require('../setting')
-const {cmd , commands} = require('../command')
+const {cmd , commands} = require('../lib/command')
 const {sleep} = require('../lib/functions')
 
 cmd({
