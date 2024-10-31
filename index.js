@@ -219,7 +219,6 @@ const body = (type === 'conversation') ? mek.message.conversation : mek.message?
 await isbtnID(mek.message?.extendedTextMessage?.contextInfo?.stanzaId) &&
 getCmdForCmdId(await getCMDStore(mek.message?.extendedTextMessage?.contextInfo?.stanzaId), mek?.message?.extendedTextMessage?.text)
 ? getCmdForCmdId(await getCMDStore(mek.message?.extendedTextMessage?.contextInfo?.stanzaId), mek?.message?.extendedTextMessage?.text)  : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : ''
-var isCmd = body.startsWith(prefix)
 var command = isCmd ? body.slice(prefix.length).trim().split(' ').shift().toLowerCase() : ''
 var args = body.trim().split(/ +/).slice(1)
 var q = args.join(' ')
