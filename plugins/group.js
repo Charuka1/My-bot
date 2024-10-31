@@ -2,7 +2,7 @@ const config = require('../setting')
 const os = require('os')
 const fs = require('fs')
 const moment = require('moment-timezone')
-const { cmd, commands } = require('../command')
+const { cmd, commands } = require('../lib/command')
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson, jsonformat} = require('../lib/functions')
 const { default: makeWASocket, useMultiFileAuthState, WA_DEFAULT_EPHEMERAL, jidNormalizedUser, proto, getDevice, generateWAMessageFromContent, fetchLatestBaileysVersion, makeInMemoryStore, getContentType, generateForwardMessageContent, downloadContentFromMessage, jidDecode } = require('@whiskeysockets/baileys')
 
