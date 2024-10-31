@@ -1,5 +1,5 @@
 const config = require('../setting')
-const { cmd, commands } = require('../command')
+const { cmd, commands } = require('../lib/command')
 const fs = require('fs')
 const fg = require('api-dylux');
 const { mediafireDl } = require('mfiredlcore-vihangayt')
