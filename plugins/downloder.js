@@ -2,6 +2,8 @@ const config = require('../setting')
 const { cmd, commands } = require('../lib/command')
 const fs = require('fs')
 const fg = require('api-dylux');
+const yts = require(`yt-search`)
+
 const { mediafireDl } = require('mfiredlcore-vihangayt')
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')	
 
@@ -226,6 +228,110 @@ if (!args[0]) {
         console.log(e);
         reply('⚠️ An error occurred while processing the request. Please try again later.');
 l(e)
+}
+})
+
+cmd({
+    pattern: "song",
+    react: "🎧",
+    desc: "download songs",
+    category: "download",
+    filename: __filename
+},
+async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+try{
+if(!q) return reply("please give me url or name🌍")
+const search = await yts(q)
+const data = search.videos[0];
+const url = data.url
+
+
+let desc = `
+───────➢───────
+ 🎧𝕄𝕀ℤ𝕌𝕂𝕀 𝕄𝔻 𝕊𝕆ℕ𝔾 𝔻𝕆𝕎ℕ𝕃𝕆𝔸𝔻𝔼ℝ🎧
+┋👩‍🎨 ${tlang().title} 
+┋🚨 *Youtube Player* ✨
+  ╼━━━━━➢━━━━━━╾
+┋🗒️ *Title:* ${data.title}
+
+┋⏳ *Duration:* ${data.timestamp}
+┋🧬 *description:* ${data.description}
+┋👀 *Viewers:* ${data.views}
+┋📤 *Uploaded:* ${data.ago}
+┋🧑‍🎤 *Author:* ${data.author.name}
+┋⬇️ Upload To Song
+ ───────➢────────
+`
+await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc},{quoted:mek});
+
+//===========================download audio===================================
+
+let down = await fg.yta(url)
+let downloadUrl = down.dl_url
+
+//send audio + document message
+await conn.sendMessage(from,{audio: {url:downloadUrl},mimetype:"audio/mpeg"},{quoted:mek})
+await conn.sendMessage(from,{document: {url:downloadUrl},mimetype:"audio/mpeg",fileName:data.title + ".mp3",caption:"© ᴹᴬᴰᴱ ᴮʸ ᴰᴬᴿᴷ ᶜʸᴮᴱᴿ"},{quoted:mek})
+
+}catch(e){
+console.log(e)
+reply(`${e}`)
+}
+})
+
+
+//================================video-dl=====================================
+
+cmd({
+    pattern: "video",
+    react: "📽️",
+    desc: "download videos",
+    category: "download",
+    filename: __filename
+},
+async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+try{
+if(!q) return reply("please give me url or name🌍")
+const search = await yts(q)
+const data = search.videos[0];
+const url = data.url
+
+
+let desc = `
+
+
+───────➢───────
+ 🎧𝕄𝕀ℤ𝕌𝕂𝕀 𝕄𝔻 𝕍𝕀𝔻𝔼𝕆 𝔻𝕆𝕎ℕ𝕃𝕆𝔸𝔻𝔼ℝ🎧
+┋👩‍🎨 ${tlang().title} 
+┋🚨 *Youtube Player* ✨
+  ╼━━━━━➢━━━━━━╾
+┋🗒️ *Title:* ${data.title}
+
+┋⏳ *Duration:* ${data.timestamp}
+┋👀 *Viewers:* ${data.views}
+┋📤 *Uploaded:* ${data.ago}
+┋🧑‍🎤 *Author:* ${data.author.name}
+┋⬇️ Upload To Song
+ ───────➢────────
+
+`
+await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc},{quoted:mek});
+
+//==========================download video===================================
+
+let down = await fg.ytv(url)
+let downloadUrl = down.dl_url
+
+//send video + document message
+
+await conn.sendMessage(from,{video: {url:downloadUrl},mimetype:"video/mp4"},{quoted:mek})
+
+await conn.sendMessage(from,{document: {url:downloadUrl},mimetype:"video/mp4",fileName:data.title + ".mp4",caption:"© ᴹᴬᴰᴱ ᴮʸ ᴰᴬᴿᴷ ᶜʸᴮᴱᴿ"},{quoted:mek})
+
+
+}catch(e){
+console.log(e)
+reply(`${e}`)
 }
 })
 
