@@ -1,6 +1,6 @@
 const config = require('../setting')
 const axios = require('axios')
-const { cmd, commands } = require('../command')
+const { cmd, commands } = require('../lib/command')
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')
 var {subsearch , subdl }  = require('@sl-code-lords/si-subdl')
 const Esana = require('@sl-code-lords/esana-news');
