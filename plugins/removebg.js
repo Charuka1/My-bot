@@ -1,5 +1,5 @@
-const config = require('../config')
-const { cmd, commands } = require('../command')
+const config = require('../setting')
+const { cmd, commands } = require('../lib/command')
 const got = require("got");
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')
 const { Sticker, createSticker, StickerTypes } = require("wa-sticker-formatter");
