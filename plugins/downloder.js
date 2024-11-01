@@ -2,7 +2,7 @@ const config = require('../setting')
 const { cmd, commands } = require('../lib/command')
 const fs = require('fs')
 const fg = require('api-dylux');
-const yts = require(`yt-search`)
+const yts = require(`ytsearch-venom`)
 
 const { mediafireDl } = require('mfiredlcore-vihangayt')
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')	
