@@ -9,7 +9,6 @@ const { mediafireDl } = require('mfiredlcore-vihangayt')
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')
 
 
-const apilink = 'https://dark-yasiya-api-new.vercel.app' // API LINK ( DO NOT CHANGE THIS!! )
 
 
 
@@ -235,6 +234,9 @@ if (!args[0]) {
 l(e)
 }
 })
+============================
+const apilink = 'https://dark-yasiya-api-new.vercel.app'
+
 
 cmd({
     pattern: "song",
