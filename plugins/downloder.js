@@ -1,11 +1,16 @@
 const config = require('../setting')
 const { cmd, commands } = require('../lib/command')
 const fs = require('fs')
+
 const fg = require('api-dylux');
 const yts = require(`ytsearch-venom`)
 
 const { mediafireDl } = require('mfiredlcore-vihangayt')
-const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')	
+const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')
+
+
+const apilink = 'https://dark-yasiya-api-new.vercel.app' // API LINK ( DO NOT CHANGE THIS!! )
+
 
 
 
@@ -241,10 +246,12 @@ cmd({
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
 if(!q) return reply("please give me url or name🌍")
-const search = await yts(q)
-const data = search.videos[0];
+const search = await fetchJson(`${apilink}/search/yt?q=${q}`)
+const data = search.result.data[0];
 const url = data.url
-
+    
+const ytdl = await fetchJson(`${apilink}/download/ytmp3?url=${data.url}`)
+    
 
 let desc = `
 ───────➢───────
@@ -280,6 +287,8 @@ reply(`${e}`)
 
 
 //================================video-dl=====================================
+
+
 
 cmd({
     pattern: "video",
