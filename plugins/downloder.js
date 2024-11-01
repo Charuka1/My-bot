@@ -235,7 +235,7 @@ l(e)
 }
 })
 //============================================================
-const apilink = 'https://dark-yasiya-api-new.vercel.app'
+const appilink = 'https://dark-yasiya-api-new.vercel.app'
 
 
 cmd({
@@ -248,11 +248,11 @@ cmd({
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
 if(!q) return reply("please give me url or name🌍")
-const search = await fetchJson(`${apilink}/search/yt?q=${q}`)
+const search = await fetchJson(`${appilink}/search/yt?q=${q}`)
 const data = search.result.data[0];
 const url = data.url
     
-const ytdl = await fetchJson(`${apilink}/download/ytmp3?url=${data.url}`)
+const ytdl = await fetchJson(`${appilink}/download/ytmp3?url=${data.url}`)
     
 
 let desc = `
