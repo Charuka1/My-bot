@@ -257,16 +257,16 @@ const ytdl = await fetchJson(`${appilink}/download/ytmp3?url=${data.url}`)
 
 let desc = `
 ───────➢───────
- 🎧 *𝕄𝕀ℤ𝕌𝕂𝕀 𝕄𝔻 𝕊𝕆ℕ𝔾 𝔻𝕆𝕎ℕ𝕃𝕆𝔸𝔻𝔼ℝ* 🎧
+ \`✦ 𝗦𝗢𝗡𝗚 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘 ✦\`
 ┋🚨 *Youtube Player* ✨
   ╼━━━━━➢━━━━━━╾
-┋🗒️ *Title:* ${data.title}
+┋🗒️ *\`Title:\`* ${data.title}
 
-┋⏳ *Duration:* ${data.timestamp}
-┋🧬 *description:* ${data.description}
-┋👀 *Viewers:* ${data.views}
-┋📤 *Uploaded:* ${data.ago}
-┋🧑‍🎤 *Author:* ${data.author.name}
+┋⏳ *\`Duration:\`* ${data.timestamp}
+┋🧬 *\`description:\`* ${data.description}
+┋👀 *\`Viewers:\`* ${data.views}
+┋📤 *\`Uploaded:\`* ${data.ago}
+┋🧑‍🎤 *\`Author:\`* ${data.author.name}
 ┋⬇️ Upload To Song
  ───────➢────────
 `
@@ -311,15 +311,15 @@ let desc = `
 
 
 ───────➢───────
- 🎧 *𝕄𝕀ℤ𝕌𝕂𝕀 𝕄𝔻 𝕍𝕀𝔻𝔼𝕆 𝔻𝕆𝕎ℕ𝕃𝕆𝔸𝔻𝔼ℝ* 🎧
+ \`✦ 𝗩𝗜𝗗𝗘𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥 ✦\`
 ┋🚨 *Youtube Player* ✨
   ╼━━━━━➢━━━━━━╾
-┋🗒️ *Title:* ${data.title}
+┋🗒️ *\`Title:\`* ${data.title}
 
-┋⏳ *Duration:* ${data.timestamp}
-┋👀 *Viewers:* ${data.views}
-┋📤 *Uploaded:* ${data.ago}
-┋🧑‍🎤 *Author:* ${data.author.name}
+┋⏳ *\`Duration:\`* ${data.timestamp}
+┋👀 *\`Viewers:\`* ${data.views}
+┋📤 *\`Uploaded:\`* ${data.ago}
+┋🧑‍🎤 *\`Author:\`* ${data.author.name}
 ┋⬇️ Upload To Song
  ───────➢────────
 
