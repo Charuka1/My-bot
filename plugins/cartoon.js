@@ -20,8 +20,6 @@ const {
 var sizetoo =  "_This file size is too big_"
 const yts = require("ytsearch-venom")
 
-let wm = setting.FOOTER
-
 cmd({
     pattern: "song",
     alias: ["ytmp3","play"],
@@ -64,7 +62,7 @@ cmd({
             let message = {
                 image: result.thumbnail,
                 header: '',
-                footer: wm,
+                footer: 'mizuki md',
                 body: caption
 
             }
