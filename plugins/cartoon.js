@@ -21,7 +21,6 @@ var sizetoo =  "_This file size is too big_"
 const yts = require("ytsearch-venom")
 
 let wm = setting.FOOTER
-let newsize = setting.MAX_SIZE * 1024 * 1024
 
 cmd({
     pattern: "song",
