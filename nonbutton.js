@@ -4,7 +4,7 @@ function btregex(dta) {
     const btn = '/({11})/'
     return h2k(btn.test(dta))
 }
-buttonMessage = async (gg, newmg) => {
+sendButtonMessage = async (gg, newmg) => {
     newmg.forEach((section, sectionIndex) => {
         let number = 1
         result += `\n*[${mainNumber}] ${section.title}*\n`;
@@ -22,4 +22,4 @@ listMessage = async (gg, newmg) => {
 })
 }
 
-module.export = {listMessage, buttonMessage, btregex}
+module.export = {listMessage, sendButtonMessage, btregex}
