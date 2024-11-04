@@ -1,78 +1,112 @@
-`GINISISILA CARTOON DL` 
+const config = require('../config')
+const dl = require('@bochilteam/scraper') 
+const fs = require('fs')
+const {
+    getBuffer,
+    getGroupAdmins,
+    getRandom,
+    getsize,
+    h2k,
+    isUrl,
+    Json,
+    runtime,
+    sleep,
+    fetchJson
+} = require('../lib/functions')
+const {
+    cmd,
+    commands
+} = require('../command')
+var sizetoo =  "_This file size is too big_"
+const yts = require("ytsearch-venom")
 
-const axios = require('axios');
+let wm = config.FOOTER
+let newsize = config.MAX_SIZE * 1024 * 1024
 
-// Define the command
 cmd({
-    pattern: "cartoonDL",
-    react: "📥",
-    alias: ["cartoonDownload", "cartoonSearch"],
-    desc: "Search and download cartoons",
-    category: "entertainment",
-    use: '.cartoonDL <cartoon_name>',
+    pattern: "song",
+    alias: ["ytmp3","play"],
+    use: '.song lelena',
+    react: "🎧",
+    desc: 'Download audios from youtube',
+    category: "download",
     filename: __filename
-}, async (message, match) => {
-    const query = match[1] || 'ben10';  // Use provided query or fallback to 'ben10'
-    const url = `https://dark-yasiya-api-new.vercel.app/search/ginisisila?text=${query}&page=1`;
 
-    try {
-        // Search for cartoons using the API
-        const response = await axios.get(url);
-        if (response.data && response.data.length > 0) {
-            const cartoonData = response.data[0];  // Get the first result (adjust as needed)
-            const cartoonTitle = cartoonData.title;
-            const downloadUrl = cartoonData.url;  // Adjust based on API response structure
+},
 
-            // Create button section
-            const sections = [{
-                title: 'Download Cartoon',
-                rows: [{
-                    title: `Download ${cartoonTitle}`,
-                    rowId: `download_${cartoonTitle.replace(/\s/g, '_')}`, // Unique ID for the button
-                }]
-            }];
+    async (conn, m, mek, { from, q, reply }) => {
+        try {
+            if (!q) return await reply('*Please enter a query or a url!*')
+            const url = q.replace(/\?si=[^&]*/, '');
+            var results = await yts(url);
+            var result = results.videos[0]
+         let caption = ` 🪔 *Y T - S O N G*\n\n`
+         caption += `	•  *Title* : ${result.title}\n`
+         caption += `	•  *Views* : ${result.views}\n`
+         caption += `	•  *Duration* : ${result.duration}\n`
+         caption += `	◦  *URL* : ${result.url}\n\n`
 
-            const buttons = [{
-                name: 'single_select',
+            let buttons = [
+            {
+                name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
-                    title: 'Tap Here!',
-                    sections
-                })
-            }];
+                    display_text: "Audio",
+                    id: `.ytaa ${result.url}`
+                }),
+            },
+            {
+                name: "quick_reply",
+                buttonParamsJson: JSON.stringify({
+                    display_text: "Document",
+                    id: `.ytad ${result.url}±${result.title}`
+                }),
+            }
+            ]
+            let message = {
+                image: result.thumbnail,
+                header: '',
+                footer: wm,
+                body: caption
 
-            // Define the footer
-            const footer = "Enjoy your cartoons! 🎉";
-
-            // Send message with button and footer
-            await message.reply({
-                text: `Found cartoon: ${cartoonTitle}. Tap the button below to download!\n\n${footer}`,
-                buttons: buttons
-            });
-
-            // Handle button click event (pseudo-code, adjust based on your implementation)
-            message.on('button_click', async (buttonId) => {
-                if (buttonId === `download_${cartoonTitle.replace(/\s/g, '_')}`) {
-                    await downloadCartoon(downloadUrl);
-                    message.reply("Download started!");
-                }
-            });
-        } else {
-            message.reply("No cartoons found for the query.");
+            }
+            return await conn.sendButtonMessage(from, buttons, m, message)
+        } catch (e) {
+            console.log(e)
+            reply('*Error !!*')
         }
-    } catch (error) {
-        console.error('Error fetching cartoons:', error);
-        message.reply('An error occurred while fetching cartoons.');
-    }
-});
+    })
 
-// Placeholder function for downloading cartoon
-async function downloadCartoon(url) {
-    try {
-        console.log(`Downloading cartoon from: ${url}`);
-        // Add actual download logic here
-        return "Download complete!";
-    } catch (error) {
-        console.error('Error downloading cartoon:', error);
-        throw new Error('Failed to download cartoon.');
-    }
-    }
+cmd({
+    pattern: "ytaa",
+    react: "📥",
+    dontAddCommandList: true,
+    filename: __filename
+},
+    async (conn, mek, m, { from, q, reply }) => {
+try {
+           if (!q) return await reply('*Need a youtube url!*')
+           const prog = await fetchJson(`https://api-pink-venom.vercel.app/api/ytmp3?url=${q}`)
+           await conn.sendMessage(from, { audio:{ url: prog.result.download_url }, mimetype: 'audio/mpeg' }, { quoted: mek })
+         } catch (e) {
+	       console.log(e)
+        }
+    })
+    
+    
+    cmd({
+    pattern: "ytad",
+    react: "📥",
+    dontAddCommandList: true,
+    filename: __filename
+},
+    async (conn, mek, m, { from, q, reply }) => {
+try {
+           if (!q) return await reply('*Need a youtube url!*')
+           const link = q.split("|")[0]
+           const title = q.split("|")[1]  || 'null'
+           const prog = await fetchJson(`https://api-pink-venom.vercel.app/api/ytmp3?url=${link}`)
+           await conn.sendMessage(from, { document:{ url: prog.result.download_url }, mimetype: 'audio/mpeg' , caption: wm, fileName: `${title}.mp3` }, { quoted: mek });
+         } catch (e) {
+	       console.log(e)
+        }
+    })
