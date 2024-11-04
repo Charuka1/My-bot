@@ -1,4 +1,4 @@
-const config = require('../config')
+const config = require('../setting')
 const dl = require('@bochilteam/scraper') 
 const fs = require('fs')
 const {
@@ -16,12 +16,12 @@ const {
 const {
     cmd,
     commands
-} = require('../command')
+} = require('../lib/command')
 var sizetoo =  "_This file size is too big_"
 const yts = require("ytsearch-venom")
 
-let wm = config.FOOTER
-let newsize = config.MAX_SIZE * 1024 * 1024
+let wm = setting.FOOTER
+let newsize = setting.MAX_SIZE * 1024 * 1024
 
 cmd({
     pattern: "song",
