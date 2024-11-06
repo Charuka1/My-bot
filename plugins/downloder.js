@@ -290,6 +290,7 @@ reply(`${e}`)
 
 //================================video-dl=====================================
 
+const appilink3 = 'https://dark-yasiya-api-new.vercel.app'
 
 
 cmd({
@@ -302,9 +303,12 @@ cmd({
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
 if(!q) return reply("please give me url or name🌍")
-const search = await ytsearch(q)
-const data = search.videos[0];
+const search = await fetchJson(`${appilink3}/search/yt?q=${q}`)
+const data = search.result.data[0];
 const url = data.url
+    
+const ytdl = await fetchJson(`${appilink3}/download/ytmp4?url=${data.url}`)
+    
 
 
 let desc = `
