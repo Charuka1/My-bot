@@ -3,7 +3,7 @@ const { cmd, commands } = require('../lib/command')
 const fs = require('fs')
 
 const fg = require('api-dylux');
-const ytsearch = require(`abhishek-ytsearch`)
+const ytsearch = require(`ytsearch-venom`)
 
 const { mediafireDl } = require('mfiredlcore-vihangayt')
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')
@@ -260,14 +260,13 @@ let desc = `
  \`✦ 𝗦𝗢𝗡𝗚 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘 ✦\`
 ┋🚨 *Youtube Player* ✨
   ╼━━━━━➢━━━━━━╾
-┋🗒️ *\`Title:\`* ${data.title}
+🗒️ *\`𝗧𝗶𝘁𝗹𝗲:\`* ${data.title}
 
-┋⏳ *\`Duration:\`* ${data.timestamp}
-┋🧬 *\`description:\`* ${data.description}
-┋👀 *\`Viewers:\`* ${data.views}
-┋📤 *\`Uploaded:\`* ${data.ago}
-┋🧑‍🎤 *\`Author:\`* ${data.author.name}
-┋⬇️ Upload To Song
+┋⏳ *\`𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻:\`* ${data.timestamp}
+┋👀 *\`𝗩𝗶𝗲𝘄𝗲𝗿𝘀:\`* ${data.views}
+┋📤 *\`𝗨𝗽𝗹𝗼𝗮𝗱𝗲𝗱:\`* ${data.ago}
+┋🧑‍🎤 *\`𝗔𝘂𝘁𝗵𝗼𝗿:\`* ${data.author.name}
+┋⬇️ \`𝚄𝙿𝙻𝙾𝙳𝙸𝙽𝙶 𝚈𝙾𝚄𝚁 𝚂𝙾𝙽𝙶...\`
  ───────➢────────
 `
 await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc},{quoted:mek});
@@ -318,13 +317,13 @@ let desc = `
  \`✦ 𝗩𝗜𝗗𝗘𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥 ✦\`
 ┋🚨 *Youtube Player* ✨
   ╼━━━━━➢━━━━━━╾
-┋🗒️ *\`Title:\`* ${data.title}
+┋🗒️ *\`𝗧𝗶𝘁𝗹𝗲:\`* ${data.title}
 
-┋⏳ *\`Duration:\`* ${data.timestamp}
-┋👀 *\`Viewers:\`* ${data.views}
-┋📤 *\`Uploaded:\`* ${data.ago}
-┋🧑‍🎤 *\`Author:\`* ${data.author.name}
-┋⬇️ Upload To Song
+┋⏳ *\`𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻:\`* ${data.timestamp}
+┋👀 *\`𝗩𝗶𝗲𝘄𝗲𝗿𝘀:\`* ${data.views}
+┋📤 *\`𝗨𝗽𝗹𝗼𝗮𝗱𝗲𝗱:\`* ${data.ago}
+┋🧑‍🎤 *\`𝗔𝘂𝘁𝗵𝗼𝗿:\`* ${data.author.name}
+┋⬇️ \`𝚄𝙿𝙻𝙾𝙳𝙸𝙽𝙶 𝚈𝙾𝚄𝚁 𝚅𝙸𝙳𝙾𝙴...\`
  ───────➢────────
 
 `
