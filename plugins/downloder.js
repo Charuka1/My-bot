@@ -3,7 +3,7 @@ const { cmd, commands } = require('../lib/command')
 const fs = require('fs')
 
 const fg = require('api-dylux');
-const yts = require(`ytsearch-venom`)
+const ytsearch = require(`abhishek-ytsearch`)
 
 const { mediafireDl } = require('mfiredlcore-vihangayt')
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')
@@ -302,7 +302,7 @@ cmd({
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
 if(!q) return reply("please give me url or name🌍")
-const search = await yts(q)
+const search = await ytsearch(q)
 const data = search.videos[0];
 const url = data.url
 
