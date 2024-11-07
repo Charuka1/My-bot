@@ -8,6 +8,11 @@ var {subsearch , subdl }  = require('@sl-code-lords/si-subdl')
 const Esana = require('@sl-code-lords/esana-news');
 var api = new Esana()
 
+var tmsg =''
+if(config.LANG === 'SI') tmsg = 'එය whatsapp beta news ලබා දෙයි.'
+else tmsg = "It gives whatsapp beta news."
+
+
 
 
 cmd({
@@ -91,9 +96,6 @@ const vid = await subsearch(q)
  await conn.sendMessage(from,{image:{url: "https://telegra.ph/file/ba8ea739e63bf28c30b37.jpg" },caption: yt + "*Qᴜᴇᴇɴ-ɪᴢᴜᴍɪ-ᴍᴅ ᴡʜᴀᴛꜱᴀᴘᴘ ᴜꜱᴇʀ ʙᴏᴛ*\n*ᴘᴏᴡᴇʀᴇᴅ"
 // ====================
 
-var tmsg =''
-if(config.LANG === 'SI') tmsg = 'එය whatsapp beta news ලබා දෙයි.'
-else tmsg = "It gives whatsapp beta news."
 
 
 cmd({
