@@ -321,6 +321,7 @@ await conn.sendMessage( from, { image: { url: news.result.image || '' }, caption
 } catch (e) {
 console.log(e)
 reply(e)
+}
 })
 
 // ================================BBC NEWS========================================
