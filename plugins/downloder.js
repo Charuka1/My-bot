@@ -103,16 +103,17 @@ if(!q) return await reply("Please give me tiktok url");
 const tiktok = await fetchJson(`${apilink}/download/tiktok?url=${q}`);
   
 const msg = `
-           🍧 *TIKTOK DOWNLOADER* 🍧
+           
+        \`*乂* 𝗧𝗜𝗞𝗧𝗢𝗞 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥 *乂*\`
 
 
-• *Title* - ${tiktok.result.title}
+• \`*Title*\` - ${tiktok.result.title}
 
-• *Author* - ${tiktok.result.author}
+• \`*Author*\` - ${tiktok.result.author}
 
-• *Duration* - ${tiktok.result.duration}
+• \`*Duration*\` - ${tiktok.result.duration}
 
-• *Views* - ${tiktok.result.views}   
+• \`*Views*\` - ${tiktok.result.views}   
 `
   
 // SEND DETAILS
@@ -157,14 +158,14 @@ if(!q) return await reply("Please give me mediafire url");
 const mfire = await fetchJson(`${aapilink}/download/mfire?url=${q}`);
   
 const msg = `
-           🔥 *MEDIAFIRE DOWNLOADER* 🔥
+           \`🔥 *MEDIAFIRE DOWNLOADER* 🔥\`
 
 
-• *File Name* - ${mfire.result.fileName}
+• \`*File Name*\` - ${mfire.result.fileName}
 
-• *File Size* - ${mfire.result.size}
+• \`*File Size*\` - ${mfire.result.size}
 
-• *Upload Date and Time* - ${mfire.result.date}
+• \`*Upload Date and Time*\` - ${mfire.result.date}
 
 `
   
@@ -350,4 +351,60 @@ console.log(e)
 reply(`${e}`)
 }
 })
+
+
+
+const apilink8 = 'https://dark-yasiya-api-new.vercel.app' // API LINK ( DO NOT CHANGE THIS!! )
+
+
+
+cmd({
+    pattern: "xvideo",
+    alias: ["xvdl","xvdown"],
+    react: "🔞",
+    desc: "Download xvideo.com porn video",
+    category: "download",
+    use: '.xvideo < text >',
+    filename: __filename
+},
+async(conn, mek, m,{from, quoted, reply, q }) => {
+try{
+
+  if(!q) return await reply("Please give me few word !")
+    
+const xv_list = await fetchJson(`${apilink}/search/xvideo?q=${q}`)
+if(xv_list.result.length < 0) return await reply("Not results found !")
+
+const xv_info = await fetchJson(`${apilink8}/download/xvideo?url=${xv_list.result[0].url}`)
+    
+  // FIRST VIDEO
+  
+const msg = `
+           \`🔞 *XVIDEO DOWNLOADER* 🔞\`
+
+       
+\`• *Title*\` - ${xv_info.result.title}
+
+\`• *Views*\` - ${xv_info.result.views}
+
+\`• *Like*\` - ${xv_info.result.like}
+
+\`• *Deslike*\` - ${xv_info.result.deslike}
+
+\`• *Size*\` - ${xv_info.result.size}
+`
+
+
+await conn.sendMessage( from, { image: { url: xv_info.result.image || '' }, caption: msg }, { quoted: mek })
+
+// SEND VIDEO
+await conn.sendMessage(from, { document: { url: xv_info.result.dl_link }, mimetype: "video/mp4", fileName: xv_info.result.title, caption: xv_info.result.title }, { quoted: mek });
+
+
+} catch (error) {
+console.log(error)
+reply(error)
+}
+})
+
 
