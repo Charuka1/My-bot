@@ -89,69 +89,7 @@ const vid = await subsearch(q)
         yt += `📃 *${i.no} - ${i.title}*\n🔗 _Link : ${i.link}_ \n\n\n`
     }
  await conn.sendMessage(from,{image:{url: "https://telegra.ph/file/ba8ea739e63bf28c30b37.jpg" },caption: yt + "*Qᴜᴇᴇɴ-ɪᴢᴜᴍɪ-ᴍᴅ ᴡʜᴀᴛꜱᴀᴘᴘ ᴜꜱᴇʀ ʙᴏᴛ*\n*ᴘᴏᴡᴇʀᴇᴅ"
- 
- 
-
-
-// Command to fetch movie details
-cmd({
-    pattern: "movie",
-    desc: "Fetch detailed information about a movie.",
-    category: "download",
-    react: "🎬",
-    filename: __filename
-}, async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
-    try {
-        const movieName = args.join(' ');
-        if (!movieName) {
-            return reply("📽️ Please provide the name of the movie.");
-        }
-
-        const apiUrl = `http://www.omdbapi.com/?t=${encodeURIComponent(movieName)}&apikey=${setting.OMDB_API_KEY}`;
-        const response = await axios.get(apiUrl);
-        const data = response.data;
-
-        if (data.Response === "False") {
-            return reply("! Movie not found.");
-        }
-
-        const movieInfo = `
-*Mizuki md Movie Search*
-
-*ᴛɪᴛʟᴇ:* ${data.Title}
-*ʏᴇᴀʀ:* ${data.Year}
-*ʀᴀᴛᴇᴅ:* ${data.Rated}
-*ʀᴇʟᴇᴀꜱᴇᴅ:* ${data.Released}
-*ʀᴜɴᴛɪᴍᴇ:* ${data.Runtime}
-*ɢᴇɴʀᴇ:* ${data.Genre}
-*ᴅɪʀᴇᴄᴛᴏʀ:* ${data.Director}
-*ᴡʀɪᴛᴇʀ:* ${data.Writer}
-*ᴀᴄᴛᴏʀꜱ:* ${data.Actors}
-*ʟᴀɴɢᴜᴀɢᴇ:* ${data.Language}
-*ᴄᴏᴜɴᴛʀʏ:* ${data.Country}
-*ᴀᴡᴀʀᴅꜱ:* ${data.Awards}
-*ɪᴍᴅʙ ʀᴀᴛɪɴɢ:* ${data.imdbRating}
-`;
-
-        const imageUrl = data.Poster && data.Poster !== 'N/A' ? data.Poster : config.ALIVE_IMG;
-
-        await conn.sendMessage(from, {
-            image: { url: imageUrl },
-            caption: `${movieInfo}\n> MIZUKI-MD`
-        }, { quoted: mek });
-    } catch (e) {
-        console.error(e);
-        reply(`❌ Error: ${e.message}`);
-        
-     
-    }
-});
-
-
-
-
-
-
+// ====================
 
 var tmsg =''
 if(config.LANG === 'SI') tmsg = 'එය whatsapp beta news ලබා දෙයි.'
