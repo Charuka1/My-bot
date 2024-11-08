@@ -74,8 +74,8 @@ const maru =`\`*𝗠𝗜𝗭𝗨𝗞𝗜 𝗠𝗗 𝗦𝗜𝗡𝗛𝗔𝗟𝗔 �
 } catch (e) {
 console.log(e)
 reply(e)
-})
 }
+})
 
 cmd({
     pattern: "slsubsearch",
@@ -94,6 +94,7 @@ const vid = await subsearch(q)
         yt += `📃 *${i.no} - ${i.title}*\n🔗 _Link : ${i.link}_ \n\n\n`
     }
  await conn.sendMessage(from,{image:{url: "https://telegra.ph/file/ba8ea739e63bf28c30b37.jpg" },caption: yt + "*Qᴜᴇᴇɴ-ɪᴢᴜᴍɪ-ᴍᴅ ᴡʜᴀᴛꜱᴀᴘᴘ ᴜꜱᴇʀ ʙᴏᴛ*\n*ᴘᴏᴡᴇʀᴇᴅ"},{quoted:mek})
+	
 } catch (e) {
 console.log(e)
 reply(e)
@@ -138,8 +139,8 @@ return await conn.sendMessage(from, { image: { url: data.image} , caption: info 
 } catch (e) {
 console.log(e)
 reply(e)
-})
 }
+})
 
 // NEW ADDED NEWS SITE [ BBC , LANKADEEPA ]
 
