@@ -353,6 +353,35 @@ reply(`${e}`)
 })
 
 
+cmd({
+    pattern: "0.1",
+    react: "📽️",
+    desc: "download videos",
+    category: "download",
+    filename: __filename
+},
+async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+try{
+if(!q) return reply("please give me url or name🌍")
+const search = await fetchJson(`${appilink3}/search/yt?q=${q}`)
+const data = search.result.data[0];
+const url = data.url
+    
+const ytdl = await fetchJson(`${appilink3}/download/ytmp4?url=${data.url}`)
+    
+let down = await fg.ytv(url)
+let downloadUrl = down.dl_url
+
+//send video + document message
+
+let md = await conn.sendMessage(from,{video: {url:downloadUrl},mimetype:"video/mp4"},{quoted:mek})
+await conn.sendMessage(from, { react: { text: '✅', key: md.key }})
+}catch(e){
+console.log(e)
+reply(`${e}`)
+}
+})
+
 
 const apilink8 = 'https://dark-yasiya-api-new.vercel.app' // API LINK ( DO NOT CHANGE THIS!! )
 
