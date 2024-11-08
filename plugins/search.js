@@ -72,10 +72,10 @@ const maru =`\`*𝗠𝗜𝗭𝗨𝗞𝗜 𝗠𝗗 𝗦𝗜𝗡𝗛𝗔𝗟𝗔 �
   await conn.sendMessage(from,{image:{url: latest.results.img },caption: maru + "*ᴍʀ-ᴋᴀꜱᴜɴ-ᴍᴅ ᴡʜᴀᴛꜱᴀᴘᴘ ᴜꜱᴇʀ ʙᴏᴛ*\n*ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴛᴇᴄʜɴɪᴄᴀʟ ᴄʏʙᴇʀꜱ*" },{quoted:mek })
   await conn.sendMessage(from, { document : { url : latest.results.dl_link  }  ,caption: latest.results.title ,mimetype: 'application/zip', fileName: `${latest.results.title}.zip` }, { quoted: mek })
 } catch (e) {
-reply('🚫 *Error Accurated !!*\n\n' + e )
-l(e)
-}
+console.log(e)
+reply(e)
 })
+}
 
 cmd({
     pattern: "slsubsearch",
@@ -95,8 +95,8 @@ const vid = await subsearch(q)
     }
  await conn.sendMessage(from,{image:{url: "https://telegra.ph/file/ba8ea739e63bf28c30b37.jpg" },caption: yt + "*Qᴜᴇᴇɴ-ɪᴢᴜᴍɪ-ᴍᴅ ᴡʜᴀᴛꜱᴀᴘᴘ ᴜꜱᴇʀ ʙᴏᴛ*\n*ᴘᴏᴡᴇʀᴇᴅ"},{quoted:mek})
 } catch (e) {
-reply('🚫 *Error Accurated !!*\n\n' + e )
-l(e)
+console.log(e)
+reply(e)
 }
 })
 
@@ -136,10 +136,10 @@ ${data.shortdesc}
 ${data.fulldesc}`
 return await conn.sendMessage(from, { image: { url: data.image} , caption: info } , { quoted: mek })
 } catch (e) {
-l(e)
-}
+console.log(e)
+reply(e)
 })
-
+}
 
 // NEW ADDED NEWS SITE [ BBC , LANKADEEPA ]
 
