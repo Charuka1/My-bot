@@ -102,6 +102,13 @@ if(commands[i].category === 'group'){
 if(!commands[i].dontAddCommandList){
   menuc7 += `*│⩥* .${commands[i].pattern}\n`
 }}};
+
+let menuc8 = ``
+for (let i=0;i<commands.length;i++) { 
+if(commands[i].category === 'anime'){
+if(!commands[i].dontAddCommandList){
+  menuc8 += `*│⩥* .${commands[i].pattern}\n`
+}}};
 let menumg = `*Hellow👸* ${pushname}
 
 *╭─     ᴄᴏᴍᴍᴀɴᴅꜱ ᴘᴀɴᴇʟ*
@@ -145,6 +152,11 @@ ${menuc6}*╰───────────●●►*
 *│   ───────*
 
 ${menuc7}*╰───────────●●►*
+*╭──────────●●►*
+*│🧙‍♂️ ANIME COMMANDS*
+*│   ───────*
+
+${menuc8}*╰───────────●●►*
 
 *•ᴍɪᴢᴜᴋɪ ᴍᴅ ᴍᴜʟᴛɪ ᴅᴇᴠɪᴄᴇ•*`
 	    
