@@ -240,7 +240,7 @@ const appilink = 'https://dark-yasiya-api-new.vercel.app'
 
 
 cmd({
-    pattern: "song,play",
+    pattern: "song",
     react: "🎧",
     desc: "download songs",
     category: "download",
