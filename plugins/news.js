@@ -52,7 +52,7 @@ async function checkAndPostNews(conn, groupId) {
         }
 
         if (!lastNewsTitles[groupId].includes(newsItem.title)) {
-            await conn.sendMessage(groupId, {image:{url: newsltem.image}, {text: `📰 *${newsItem.title}*\n${newsItem.content}\n${newsItem.date}\n\n> ᴘᴀᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ` 
+            await conn.sendMessage(groupId, ${newsltem.image}, {text: `🗞️ *${newsItem.title} 🗞️*\n\n${newsItem.content}\n\n${newsItem.date}\n\n> ᴘᴀᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ` 
             });
             lastNewsTitles[groupId].push(newsItem.title);
 
