@@ -59,7 +59,7 @@
     "stream":"0.0.3",
     "@bochilteam/scraper":"5.0.1",
     "@sasmeee/wabetainfo":"1.1.1",
-    "@sl-code-lords/esana-news": "latest"
+    "@sl-code-lords/esana-news": "latest",
     "hirunews-scrap": "^1.1.2"
   }
 }
