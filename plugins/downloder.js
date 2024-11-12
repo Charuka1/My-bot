@@ -205,7 +205,7 @@ if (!args[0]) {
     
         const result = await fg.fbdl(args[0]);
         const tex = `
-  *Video Details* 
+  *\`Video Details\`* 
 📽️ *Title*: ${result.title}
 `;
 
@@ -257,7 +257,7 @@ const ytdl = await fetchJson(`${appilink}/download/ytmp3?url=${data.url}`)
     
 
 let desc = `
-*\`✦ 𝗦𝗢𝗡𝗚 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥 ✦\`*
+*\`❍ 𝗦𝗢𝗡𝗚 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥 ❍\`*
  
 *\`➤ 𝗧𝗶𝘁𝗹𝗲:\`* ${data.title}
 
@@ -267,7 +267,7 @@ let desc = `
 
 *\`➤ 𝗨𝗽𝗹𝗼𝗮𝗱𝗲𝗱:\`* ${data.ago}
 
-*\`➤𝗔𝘂𝘁𝗵𝗼𝗿:\`* ${data.author.name}
+*\`➤ 𝗔𝘂𝘁𝗵𝗼𝗿:\`* ${data.author.name}
 
 ⬇️ *\`𝚄𝙿𝙻𝙾𝙳𝙸𝙽𝙶 𝚈𝙾𝚄𝚁 𝚂𝙾𝙽𝙶...\`*
 `
@@ -315,7 +315,7 @@ const ytdl = await fetchJson(`${appilink3}/download/ytmp4?url=${data.url}`)
 
 let desc = `
 
-*\`✦ 𝗩𝗜𝗗𝗘𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥 ✦\`*
+*\`❍ 𝗩𝗜𝗗𝗘𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥 ❍\`*
  
 *\`➤ 𝗧𝗶𝘁𝗹𝗲:\`* ${data.title}
 
@@ -325,11 +325,9 @@ let desc = `
 
 *\`➤ 𝗨𝗽𝗹𝗼𝗮𝗱𝗲𝗱:\`* ${data.ago}
 
-*\`➤𝗔𝘂𝘁𝗵𝗼𝗿:\`* ${data.author.name}
+*\`➤ 𝗔𝘂𝘁𝗵𝗼𝗿:\`* ${data.author.name}
 
 ⬇️ *\`𝚄𝙿𝙻𝙾𝙳𝙸𝙽𝙶 𝚈𝙾𝚄𝚁 𝚅𝙸𝙳𝙾𝙴...\`*
-
-
 `
 await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc},{quoted:mek});
 
