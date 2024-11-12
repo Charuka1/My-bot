@@ -5,7 +5,7 @@ const { cmd, commands } = require('../lib/command')
 // FETCH API URL
 let baseUrl;
 (async () => {
-    let baseUrlGet = await fetchJson(`https://raw.githubusercontent.com/prabathLK/PUBLIC-URL-HOST-DB/main/public/url.json`)
+    let baseUrlGet = await fetchJson(`https://www.dark-yasiya-api.site/movie/firemovie/search?text=deadpool`)
     baseUrl = baseUrlGet.api
 })();
 
