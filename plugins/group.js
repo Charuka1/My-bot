@@ -72,7 +72,7 @@ cmd({
 },
 async (conn, mek, m, { from, isOwner, reply }) => {
     if (!isOwner) return reply("❌ You are not the owner!");
-    reply(`🤖 *Bot JID:* ${conn.user.jid}`);
+    reply(`🤖 *Bot JID:* ${conn.group.jid}`);
 });
 
 
