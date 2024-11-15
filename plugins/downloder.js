@@ -273,11 +273,11 @@ let desc = `
 *1.0 Audio Type 🎧*
 *1.1 Document Type 📁*
 `
-await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc},{quoted:mek});
+const vv = await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc},{quoted:mek});
 
 //===========================download audio===================================
 
-conn.ev.on('messages.upsert', async (msgUpdate) => {
+        conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
             if (!msg.message || !msg.message.extendedTextMessage) return;
 
@@ -288,14 +288,15 @@ conn.ev.on('messages.upsert', async (msgUpdate) => {
                     case '1.0':
                         let down = await fg.yta(url);
                         let downloadUrl = down.dl_url;
-                        await conn.sendMessage(from, { audio: { url:downloadUrl }, caption: '*ᴘᴀᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ*', mimetype: 'audio/mpeg'},{ quoted: mek });
+                        let ms = await conn.sendMessage(from, { audio: { url:downloadUrl }, caption: '*ᴘᴀᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ*', mimetype: 'audio/mpeg'},{ quoted: mek });
+			  await conn.sendMessage(from, { react: { text: '✅', key: ms.key } })
                         break;
                     case '1.1':               
                         // Send Document File
                         let downdoc = await fg.yta(url);
                         let downloaddocUrl = downdoc.dl_url;
-                        let ss = await conn.sendMessage(from, { document: { url:downloaddocUrl }, caption: '*ᴘᴀᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ*', mimetype: 'audio/mpeg', fileName:data.title + ".mp3"}, { quoted: mek });
-                        await conn.sendMessage(from, { react: { text: '✅', key: ss.key } })
+                        let mg = await conn.sendMessage(from, { document: { url:downloaddocUrl }, caption: '*ᴘᴀᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄᴄʜᴀʀᴜᴋᴀ*', mimetype: 'audio/mpeg', fileName:data.title + ".mp3"}, { quoted: mek });
+                        await conn.sendMessage(from, { react: { text: '✅', key: mg.key } })
                         break;
                     default:
                         reply("Invalid option. Please select a valid option🔴");
@@ -309,8 +310,8 @@ conn.ev.on('messages.upsert', async (msgUpdate) => {
         await conn.sendMessage(from, { react: { text: '❌', key: mek.key } })
         reply('An error occurred while processing your request.');
     }
-});
 
+});
 
 //================================video-dl=====================================
 
@@ -352,11 +353,10 @@ let desc = `
 *0.1 Audio Type 📽️*
 *1.1 Document Type 📁*
 `
-await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc},{quoted:mek});
+const vv = await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc},{quoted:mek});
 
 //==========================download video===================================
 
-const vv = await conn.sendMessage(from, { image: { url: data.thumbnail }, caption: desc }, { quoted: mek });
 
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
@@ -469,7 +469,7 @@ const msg = `
 `
 
 
-await conn.sendMessage( from, { image: { url: xv_info.result.image || '' }, caption: msg }, { quoted: mek })
+const vv = await conn.sendMessage( from, { image: { url: xv_info.result.image || '' }, caption: msg }, { quoted: mek })
 
 // SEND VIDEO
 
