@@ -11,44 +11,36 @@ const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, 
 
 
 
-
-//====your bot name=======
-let cap = '🧚ᴍᴀᴅᴇ ʙʏ ᴍɪᴢᴜᴋɪ ᴍᴅ🧚'
-
-// <========FETCH API URL========>
+// FETCH API URL
 let baseUrl;
 (async () => {
     let baseUrlGet = await fetchJson(`https://raw.githubusercontent.com/prabathLK/PUBLIC-URL-HOST-DB/main/public/url.json`)
     baseUrl = baseUrlGet.api
 })();
-
-
-//========================fb downloader=============================
+//fb downloader
 cmd({
     pattern: "fb",
-    react: "☑️",
-    alias: ["facebook"],
-    desc: "download fb videos",
+    desc: "Download fb videos",
     category: "download",
+    react: "📥",
     filename: __filename
 },
-async(conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
+async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
-        if (!q && !q.startsWith("https://")) return reply("*pleas give me fb url*🌍")
-        //fetch data from api  
-        let data = await fetchJson(`${baseUrl}/api/fdown?url=${q}`)
-        let ss = `𝗙 𝗕   𝗗 𝗢 𝗪 𝗡 𝗟 𝗢 𝗔 𝗗 𝗘 𝗥
+        if (!q || !q.startsWith("https://")) return reply("Please provide a valid Facebook video URL!");
+        const data = await fetchJson(`${baseUrl}/api/fdown?url=${q}`);
+        let desc = ` *❖ DARK-NETHU-MD FB DOWNLOADER ❖*
 
- 🔢 Reply Below Number 
+💻  Github:https://github.com/project-wabot/DARK-NETHU-MD
 
-	1| 𝗦𝗗 𝗤𝗨𝗔𝗟𝗜𝗧𝗬
-  2| 𝗛𝗗 𝗤𝗨𝗔𝗟𝗜𝗧𝗬
+*🌟 Choose Your Download Quality*
 
- *ᴘᴏᴡᴇʀᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ*`;
+*1 Download HD Quality*
+*2 Download SD Quality*
 
+> ᴘᴀᴡᴇʀᴇᴅ ʙʏ ɴᴇᴛʜᴍɪᴋᴀ ᴍᴀɪɴ`;
 
-
-const vv = await conn.sendMessage(from, { caption: ss }, { quoted: mek });
+        const vv = await conn.sendMessage(from, { image: { url:"ඔයාගේ img එකේ url එක දෙන්න"}, caption: desc }, { quoted: mek });
         
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
@@ -59,12 +51,11 @@ const vv = await conn.sendMessage(from, { caption: ss }, { quoted: mek });
             if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === vv.key.id) {
                 switch (selectedOption) {
                     case '1':
-                        
-        await conn.sendMessage(from, { video: { url: data.data.hd }, mimetype: "video/mp4", caption: `- QUALITY HD✅\n\n> ${cap}` }, { quoted: mek })
+                        await conn.sendMessage(from, { video: { url: data.data.hd }, mimetype: "video/mp4", caption: "*ᴘᴀᴡᴇʀᴇᴅ ʙʏ ɴᴇᴛʜᴍɪᴋᴀ ᴍᴀɪɴ*" }, { quoted: mek });
                         break;
                     case '2':               
-                    await conn.sendMessage(from, { video: { url: data.data.sd }, mimetype: "video/mp4", caption: `- QUALITY SD✅ \n\n> ${cap}` }, { quoted: mek })  
-                     break;
+                    await conn.sendMessage(from, { video: { url: data.data.sd }, mimetype: "video/mp4", caption: "*ᴘᴀᴡᴇʀᴇᴅ ʙʏ ɴᴇᴛʜᴍɪᴋᴀ ᴍᴀɪɴ*" }, { quoted: mek });
+                        break;
                     default:
                         reply("Invalid option. Please select a valid option🔴");
                 }
@@ -74,11 +65,10 @@ const vv = await conn.sendMessage(from, { caption: ss }, { quoted: mek });
 
     } catch (e) {
         console.error(e);
-        await conn.sendMessage(from, { react: { text: '❌', key: vv.key } })
+        await conn.sendMessage(from, { react: { text: '❌', key: mek.key } })
         reply('An error occurred while processing your request.');
     }
 });
-
 
 
         
