@@ -74,7 +74,7 @@ const vv = await conn.sendMessage(from, { caption: ss }, { quoted: mek });
 
     } catch (e) {
         console.error(e);
-        await conn.sendMessage(from, { react: { text: '❌', key: mek.key } })
+        await conn.sendMessage(from, { react: { text: '❌', key: vv.key } })
         reply('An error occurred while processing your request.');
     }
 });
