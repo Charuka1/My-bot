@@ -12,6 +12,84 @@ const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, 
 
 
 
+//====your bot name=======
+let cap = '🧚ᴍᴀᴅᴇ ʙʏ ᴍɪᴢᴜᴋɪ ᴍᴅ🧚'
+
+// <========FETCH API URL========>
+let baseUrl;
+(async () => {
+    let baseUrlGet = await fetchJson(`https://raw.githubusercontent.com/prabathLK/PUBLIC-URL-HOST-DB/main/public/url.json`)
+    baseUrl = baseUrlGet.api
+})();
+
+
+//========================fb downloader=============================
+cmd({
+    pattern: "fb",
+    react: "☑️",
+    alias: ["facebook"],
+    desc: "download fb videos",
+    category: "download",
+    filename: __filename
+},
+async(conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
+    try {
+        if (!q && !q.startsWith("https://")) return reply("*pleas give me fb url*🌍")
+        //fetch data from api  
+        let data = await fetchJson(`${baseUrl}/api/fdown?url=${q}`)
+        let ss = `𝗙 𝗕   𝗗 𝗢 𝗪 𝗡 𝗟 𝗢 𝗔 𝗗 𝗘 𝗥
+
+ 🔢 Reply Below Number 
+
+	1| 𝗦𝗗 𝗤𝗨𝗔𝗟𝗜𝗧𝗬
+  2| 𝗛𝗗 𝗤𝗨𝗔𝗟𝗜𝗧𝗬
+
+ *ᴘᴏᴡᴇʀᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ*`)
+        //send video (hd,sd)
+
+
+
+const vv = await conn.sendMessage(from, { image: { url:"ඔයාගේ img එකේ url එක දෙන්න"}, caption: ss }, { quoted: mek });
+        
+        conn.ev.on('messages.upsert', async (msgUpdate) => {
+            const msg = msgUpdate.messages[0];
+            if (!msg.message || !msg.message.extendedTextMessage) return;
+
+            const selectedOption = msg.message.extendedTextMessage.text.trim();
+
+            if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === vv.key.id) {
+                switch (selectedOption) {
+                    case '1':
+                        
+        await conn.sendMessage(from, { video: { url: data.data.hd }, mimetype: "video/mp4", caption: `- QUALITY HD✅\n\n> ${cap}` }, { quoted: mek })
+                        break;
+                    case '2':               
+                    await conn.sendMessage(from, { video: { url: data.data.sd }, mimetype: "video/mp4", caption: `- QUALITY SD✅ \n\n> ${cap}` }, { quoted: mek })  
+                     break;
+                    default:
+                        reply("Invalid option. Please select a valid option🔴");
+                }
+
+            }
+        });
+
+    } catch (e) {
+        console.error(e);
+        await conn.sendMessage(from, { react: { text: '❌', key: mek.key } })
+        reply('An error occurred while processing your request.');
+    }
+});
+
+
+
+        await conn.sendMessage(from, { video: { url: data.data.hd }, mimetype: "video/mp4", caption: `- QUALITY HD\n\n> ${cap}` }, { quoted: mek })
+        await conn.sendMessage(from, { video: { url: data.data.sd }, mimetype: "video/mp4", caption: `- QUALITY SD \n\n> ${cap}` }, { quoted: mek })  
+    } catch (e) {
+        console.log(e)
+        reply(`${e}`)
+    }
+})
+
 
 
 
@@ -219,7 +297,7 @@ reply('This url type is not working !!')
 
 
 cmd({
-  pattern: "fb",
+  pattern: "fb2",
   react: "🔓",
   category: "download",
   filename: __filename
