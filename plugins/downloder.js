@@ -3,6 +3,7 @@ const { cmd, commands } = require('../lib/command')
 const fs = require('fs')
 
 const fg = require('api-dylux');
+const yts = require('yt-search');
 const ytsearch = require(`ytsearch-venom`)
 
 const { mediafireDl } = require('mfiredlcore-vihangayt')
