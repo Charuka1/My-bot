@@ -250,8 +250,9 @@ async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender
 try{
 if(!q) return reply("please give me url or name🌍")
 const search = await fetchJson(`${appilink}/search/yt?q=${q}`)
-const data = search.result.data[0];
-const url = data.url
+const search = await yts(q);
+        const data = search.videos[0];
+        const url = data.url;
     
 const ytdl = await fetchJson(`${appilink}/download/ytmp3?url=${data.url}`)
     
@@ -276,7 +277,7 @@ await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc},{quoted:m
 
 //===========================download audio===================================
 
-conn.ev.on('messages.upsert', async (msgUpdate) => {
+conn.vv.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
             if (!msg.message || !msg.message.extendedTextMessage) return;
 
@@ -336,21 +337,20 @@ const ytdl = await fetchJson(`${appilink3}/download/ytmp4?url=${data.url}`)
 
 let desc = `
 
-*❍ 𝗩𝗜𝗗𝗘𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥 ❍*
+*\`❍ 𝗩𝗜𝗗𝗘𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥 ❍\`*
  
-*➤ 𝗧𝗶𝘁𝗹𝗲:* ${data.title}
+*\`➤ 𝗧𝗶𝘁𝗹𝗲:\`* ${data.title}
 
-*➤ 𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻:* ${data.timestamp}
+*\`➤ 𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻:\`* ${data.timestamp}
 
-*➤ 𝗩𝗶𝗲𝘄𝗲𝗿𝘀:* ${data.views}
+*\`➤ 𝗩𝗶𝗲𝘄𝗲𝗿𝘀:\`* ${data.views}
 
-*➤ 𝗨𝗽𝗹𝗼𝗮𝗱𝗲𝗱:* ${data.ago}
+*\`➤ 𝗨𝗽𝗹𝗼𝗮𝗱𝗲𝗱:\`* ${data.ago}
 
-*➤ 𝗔𝘂𝘁𝗵𝗼𝗿:* ${data.author.name}
+*\`➤ 𝗔𝘂𝘁𝗵𝗼𝗿:\`* ${data.author.name}
 
-0.1 *Audio Type 📽️*
-
-1.1 *Document Type 📁*
+*0.1 Audio Type 📽️*
+*1.1 Document Type 📁*
 `
 await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc},{quoted:mek});
 
