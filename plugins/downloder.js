@@ -234,7 +234,14 @@ if (!args[0]) {
     if (!urlRegex.test(args[0])) {
         throw '⚠️ PLEASE GIVE A VALID URL.';
     }
-     await reply(`Please wait...`);
+     await reply(`\`𝗙𝗕 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘\`
+        🔢 Reply Below Number 
+
+
+	1| 𝗦𝗗 𝗤𝗨𝗔𝗟𝗜𝗧𝗬
+        2| 𝗛𝗗 𝗤𝗨𝗔𝗟𝗜𝗧𝗬
+
+ *ᴘᴏᴡᴇʀᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ*`);
     
         const result = await fg.fbdl(args[0]);
         const tex = `
@@ -252,14 +259,7 @@ if (!args[0]) {
         fs.writeFileSync(`./${randomName}`, videoBuffer);
 
         // Send the video using client.sendMessage
-        await conn.sendMessage(
-            from,
-            {
-                video: fs.readFileSync(`./${randomName}`),
-                caption: tex,
-            },
-            { quoted: mek }
-        );
+        await conn.sendMessage(from,{video: fs.readFileSync(`./${randomName}`),caption: tex,},{ quoted: mek });
 
         fs.unlinkSync(`./${randomName}`);
     } catch (e) {
