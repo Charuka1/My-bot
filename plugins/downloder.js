@@ -105,20 +105,22 @@ const tiktok = await fetchJson(`${apilink}/download/tiktok?url=${q}`);
   
 const msg = `
            
-        \`*乂* 𝗧𝗜𝗞𝗧𝗢𝗞 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥 *乂*\`
+        *\`乂 𝗧𝗜𝗞𝗧𝗢𝗞 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥 乂\`*
 
 
-• \`*Title*\` - ${tiktok.result.title}
+•*\`*Title\`* - ${tiktok.result.title}
 
-• \`*Author*\` - ${tiktok.result.author}
+•*\`*Author\`* - ${tiktok.result.author}
 
-• \`*Duration*\` - ${tiktok.result.duration}
+•*\`Duration\`* - ${tiktok.result.duration}
 
-• \`*Views*\` - ${tiktok.result.views} 
+•*\`Views\`* - ${tiktok.result.views} 
 
-*1.1 WATERMARK VIDEO TYPE*
-*2.2 NO WATERMARK VIDEO TYPE*
-*3.3 AUDIO TYPE*
+🔢 Reply Below Number
+
+*1.1| WATERMARK VIDEO TYPE*
+*2.2| NO WATERMARK VIDEO TYPE*
+*3.3| AUDIO TYPE*
 `
 
 
@@ -300,8 +302,10 @@ let desc = `
 
 *\`➤ 𝗔𝘂𝘁𝗵𝗼𝗿:\`* ${data.author.name}
 
-*1.0 Audio Type 🎧*
-*1.1 Document Type 📁*
+🔢 Reply Below Number
+
+*1.0| Audio Type 🎧*
+*1.1| Document Type 📁*
 `
 const vv = await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc},{quoted:mek});
 
@@ -380,8 +384,10 @@ let desc = `
 
 *\`➤ 𝗔𝘂𝘁𝗵𝗼𝗿:\`* ${data.author.name}
 
-*0.1 Audio Type 📽️*
-*1.1 Document Type 📁*
+🔢 Reply Below Number
+
+*0.1| Audio Type 📽️*
+*1.1| Document Type 📁*
 `
 const vv = await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc},{quoted:mek});
 
@@ -480,21 +486,23 @@ const xv_info = await fetchJson(`${apilink8}/download/xvideo?url=${xv_list.resul
   // FIRST VIDEO
   
 const msg = `
-           \`🔞 *XVIDEO DOWNLOADER* 🔞\`
+           *\`🔞 XVIDEO DOWNLOADER 🔞\`*
 
        
-\`• *Title*\` - ${xv_info.result.title}
+*\`• Title\`* - ${xv_info.result.title}
 
-\`• *Views*\` - ${xv_info.result.views}
+*\`• Views\`* - ${xv_info.result.views}
 
-\`• *Like*\` - ${xv_info.result.like}
+*\`• Like\`* - ${xv_info.result.like}
 
-\`• *Deslike*\` - ${xv_info.result.deslike}
+*\`• Deslike*\`* - ${xv_info.result.deslike}
 
-\`• *Size*\` - ${xv_info.result.size}
+*\`• Size\`* - ${xv_info.result.size}
 
-*1 Video Type📽️*
-*2 Document Type📁*
+🔢 Reply Below Number
+
+*1| Video Type📽️*
+*2| Document Type📁*
 
 `
 
