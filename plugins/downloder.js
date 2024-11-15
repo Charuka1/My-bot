@@ -323,8 +323,8 @@ const vv = await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc
                         break;
                     case '1.1':               
                         // Send Document File
-                        let down = await fg.yta(url);
-                        let downloadUrl = down.dl_url;
+                        let downdoc = await fg.yta(url);
+                        let downloaddocUrl = downdoc.dl_url;
                         let mg = await conn.sendMessage(from, { document: { url:downloaddocUrl }, caption: '*ᴘᴀᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄᴄʜᴀʀᴜᴋᴀ*', mimetype: 'audio/mpeg', fileName:data.title + ".mp3"}, { quoted: mek });
                         await conn.sendMessage(from, { react: { text: '✅', key: mg.key } })
                         break;
