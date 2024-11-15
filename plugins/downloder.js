@@ -49,7 +49,7 @@ async(conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, send
 
 
 
-const vv = await conn.sendMessage(from, { image: { url:"ඔයාගේ img එකේ url එක දෙන්න"}, caption: ss }, { quoted: mek });
+const vv = await conn.sendMessage(from, { image: { url: data.thumbnail}, caption: ss }, { quoted: mek });
         
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
