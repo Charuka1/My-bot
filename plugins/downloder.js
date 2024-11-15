@@ -370,13 +370,8 @@ const vv = await conn.sendMessage(from, { image: { url: data.thumbnail }, captio
         await conn.sendMessage(from, { react: { text: '❌', key: mek.key } })
         reply('An error occurred while processing your request.');
     }
-});
-}catch(e){
-console.log(e)
-reply(`${e}`)
-}
-})
 
+});
 
 cmd({
     pattern: "0.1",
