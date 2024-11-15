@@ -294,8 +294,8 @@ conn.ev.on('messages.upsert', async (msgUpdate) => {
                         // Send Document File
                         let downdoc = await fg.yta(url);
                         let downloaddocUrl = downdoc.dl_url;
-                        await conn.sendMessage(from, { document: { url:downloaddocUrl }, caption: '*ᴘᴀᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ*', mimetype: 'audio/mpeg', fileName:data.title + ".mp3"}, { quoted: mek });
-                        await conn.sendMessage(from, { react: { text: '✅', key: mek.key } })
+                        let ss = await conn.sendMessage(from, { document: { url:downloaddocUrl }, caption: '*ᴘᴀᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ*', mimetype: 'audio/mpeg', fileName:data.title + ".mp3"}, { quoted: mek });
+                        await conn.sendMessage(from, { react: { text: '✅', key: ss.key } })
                         break;
                     default:
                         reply("Invalid option. Please select a valid option🔴");
@@ -475,9 +475,7 @@ await conn.sendMessage( from, { image: { url: xv_info.result.image || '' }, capt
 
 
 
-const vv = await conn.sendMessage(from, { image: { url:"ඔයාගේ img එකේ url එක දෙන්න"}, caption: desc }, { quoted: mek });
-        
-        conn.ev.on('messages.upsert', async (msgUpdate) => {
+   conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
             if (!msg.message || !msg.message.extendedTextMessage) return;
 
