@@ -327,23 +327,50 @@ let desc = `
 
 *\`➤ 𝗔𝘂𝘁𝗵𝗼𝗿:\`* ${data.author.name}
 
-⬇️ *\`𝚄𝙿𝙻𝙾𝙳𝙸𝙽𝙶 𝚈𝙾𝚄𝚁 𝚅𝙸𝙳𝙾𝙴...\`*
+0.1 Audio Type
+
+1.1 Document Type
 `
 await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc},{quoted:mek});
 
 //==========================download video===================================
 
-let down = await fg.ytv(url)
-let downloadUrl = down.dl_url
+const vv = await conn.sendMessage(from, { image: { url: data.thumbnail }, caption: desc }, { quoted: mek });
 
-//send video + document message
+        conn.ev.on('messages.upsert', async (msgUpdate) => {
+            const msg = msgUpdate.messages[0];
+            if (!msg.message || !msg.message.extendedTextMessage) return;
 
-let mg = await conn.sendMessage(from,{video: {url:downloadUrl},mimetype:"video/mp4"},{quoted:mek})
-await conn.sendMessage(from, { react: { text: '✅', key: mg.key }})
+            const selectedOption = msg.message.extendedTextMessage.text.trim();
 
-let send = await conn.sendMessage(from,{document: {url:downloadUrl},mimetype:"video/mp4",fileName:data.title + ".mp4",caption:"© ᴹᴬᴰᴱ ᴮʸ ᴰᴬᴿᴷ ᶜʸᴮᴱᴿ"},{quoted:mek})
-await conn.sendMessage(from, { react: { text: '✅', key: send.key }})
+            if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === vv.key.id) {
+                switch (selectedOption) {
+                    case '0.1':
+                        let down = await fg.ytv(url);
+                        let downloadUrl = down.dl_url;
+                        let ms = await conn.sendMessage(from, { video: { url:downloadUrl }, caption: '*ᴘᴀᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ*', mimetype: 'video/mp4'},{ quoted: mek });
+			  await conn.sendMessage(from, { react: { text: '✅', key: ms.key } })
+                        break;
+                    case '1.1':               
+                        // Send Document File
+                        let downdoc = await fg.ytv(url);
+                        let downloaddocUrl = downdoc.dl_url;
+                        let mg = await conn.sendMessage(from, { document: { url:downloaddocUrl }, caption: '*ᴘᴀᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄᴄʜᴀʀᴜᴋᴀ*', mimetype: 'video/mp4', fileName:data.title + ".mp4"}, { quoted: mek });
+                        await conn.sendMessage(from, { react: { text: '✅', key: mg.key } })
+                        break;
+                    default:
+                        reply("Invalid option. Please select a valid option🔴");
+                }
 
+            }
+        });
+
+    } catch (e) {
+        console.error(e);
+        await conn.sendMessage(from, { react: { text: '❌', key: mek.key } })
+        reply('An error occurred while processing your request.');
+    }
+});
 }catch(e){
 console.log(e)
 reply(`${e}`)
