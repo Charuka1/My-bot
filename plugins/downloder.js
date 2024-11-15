@@ -82,13 +82,7 @@ const vv = await conn.sendMessage(from, { image: { url:"ඔයාගේ img එ�
 
 
 
-        await conn.sendMessage(from, { video: { url: data.data.hd }, mimetype: "video/mp4", caption: `- QUALITY HD\n\n> ${cap}` }, { quoted: mek })
-        await conn.sendMessage(from, { video: { url: data.data.sd }, mimetype: "video/mp4", caption: `- QUALITY SD \n\n> ${cap}` }, { quoted: mek })  
-    } catch (e) {
-        console.log(e)
-        reply(`${e}`)
-    }
-})
+        
 
 
 
