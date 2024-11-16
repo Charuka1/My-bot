@@ -16,7 +16,7 @@ async function getLatestNews() {
         const hiruNews = await hiruApi.BreakingNews();
         newsData.push({
             title: hiruNews.results.title,
-            img:hiruNews.rusults.img
+            img:hiruNews.rusults.img,
             content: hiruNews.results.news,
             date: hiruNews.results.date
         });
