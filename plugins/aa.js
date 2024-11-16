@@ -23,11 +23,13 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 *╭═「 ᴄᴏᴍᴍᴀɴᴅ ᴘᴀɴᴇʟ 」*
 *│◈ ʀᴜɴᴛɪᴍᴇ :* ${runtime(process.uptime())}
 *│◈ ʀᴀᴍ ᴜꜱᴀɢᴇ :* ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
+*│◈ ʙᴏᴛ ɴᴀᴍᴇ :* ᴍɪᴢᴜᴋɪ ᴍᴅ
 *╰═══════════════○●►*
 *╭────────────────○●►*
-*┃「  𝘋𝘈𝘙𝘒 𝘕𝘌𝘛𝘏𝘜 𝘔𝘌𝘕𝘜 」*
+*┃「 𝗠𝗜𝗭𝗨𝗞𝗜 𝗠𝗗 𝗠𝗘𝗡𝗨 𝗟𝗜𝗦𝗧 」*
 *╰────────────────○●►*
 *╭───────────────○●►*
+*╎🔢\`REPLY BELOW MENU NUMBER\`*
 *╎ 01 OWNER*
 *╎ 02 CONVERT*
 *╎ 03 AI*
@@ -36,19 +38,9 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 *╎ 06 FUN*
 *╎ 07 MAIN*
 *╎ 08 GROUP*
-*╎ 09 OTHER*
-*╎ 10 TOOL*
 *╰───────────────○●►*
-*╭─ 「  𝘋𝘈𝘙𝘒 𝘕𝘌𝘛𝘏𝘜 𝘔𝘋  」*
-*╰───────────────○●►*
-
-🌟 ℝ𝔼ℙ𝕃𝕐 𝕥𝕙𝕖 ℕ𝕒𝕞𝕓𝕖𝕣 𝕐𝕠𝕦 𝕨𝕒𝕟𝕥 𝕥𝕠 𝕤𝕖𝕝𝕖𝕔𝕥
-
-💻 *GitHub:*  https://github.com/NETHU-MAX/DARK-NETHU-MD
-
-👩‍💻 *Channel:* https://whatsapp.com/channel/0029VagCogPGufJ3kZWjsW3A
-
-> 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐁𝐲 - : © ɴᴇᴛʜᴍɪᴋᴀ ᴍᴀɪɴ 2024`;
+ ╎ \`ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍɪᴢᴜᴋɪ ᴍᴅ\`
+*└───────────────◒◒►*`;
 
         const vv = await conn.sendMessage(from, { image: { url: "https://iili.io/29wAvDu.jpg"}, caption: desc }, { quoted: mek });
 
@@ -285,7 +277,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 });
 //======================= system command =====================
 
-/*/cmd({
+cmd({
     pattern: "system",
     alias: ["info","botinfo"],
     desc: "check up time",
@@ -308,7 +300,7 @@ let status =`
 `
 const imageUrl='https://iili.io/29wAvDu.jpg';
     await conn.sendMessage(from,{image:{url:imageUrl},caption:status},{quoted:mek||null})}catch(e){console.log(e);reply(`Error: ${e}`);}});
-    /*/
+    
 //=================== ping command =======================
 
 
