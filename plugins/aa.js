@@ -29,7 +29,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 *┃「 𝗠𝗜𝗭𝗨𝗞𝗜 𝗠𝗗 𝗠𝗘𝗡𝗨 𝗟𝗜𝗦𝗧 」*
 *╰────────────────○●►*
 *╭────────────────○●►*
-*╎\`🔢REPLY BELOW MENU NUMBER\`*
+*╎ \`🔢REPLY BELOW MENU NUMBER\`*
 *╎ 01 OWNER*
 *╎ 02 CONVERT*
 *╎ 03 AI*
