@@ -25,7 +25,7 @@ async(conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, send
     try {
         if (!q && !q.startsWith("https://")) return reply("*⚠Films Download කර ගැනීම සදහා cineru.lk වෙත පිවිස,*.\nෆිල්ම් එක තෝරා\n*HC VIDEO COPY හෝ VIDEO COPY CLICK කර,Google drive[GDRIVE] ලින්ක් ලබා දෙන්න ✅\n\n> contact Owner - 0711451319 ")
         //fetch data from api  
-        let data = await fetchJson(`${baseUrl}/api/gdrivedl?url=${q}`)
+        let data = await fetchJson()
         reply("🎬*ɴᴀᴅᴇᴇɴ ᴍᴅ ᴄɪɴᴇʀᴜ.ʟᴋ ᴍᴏᴠɪᴇ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*🎬​ \n*--------------------------------------------*\n𝕐𝕆𝕌ℝ 𝕄𝕆𝕍𝕀𝔼 𝕀𝕊\n*📤𝕌ℙ𝕃𝕆𝔸𝔻𝕀ℕ𝔾 ◽◽◽◽◽◽*\n\n> *ɴᴀᴅᴇᴇɴ-ᴍᴅ ʙʏ ɴᴀᴅᴇᴇɴ ᴘᴏᴏʀɴᴀ*")
         await conn.sendMessage(from, { document: { url: data.data.download }, fileName: data.data.fileName, mimetype: data.data.mimeType, caption: `🍟Movie Name : ${data.data.fileName} | සිංහල උපසිරැසි ඇතුළත් කර නැත.\n🍫Bot Owner : 94711451319 \n\n${yourName}` }, { quoted: mek })                                                                                                                 
     } catch (e) {
