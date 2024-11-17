@@ -2,6 +2,18 @@ const config = require('../setting')
 const {cmd , commands} = require('../lib/command')
 const os = require("os")
 const{getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')
+ function genMsgId() {
+  const prefix = "3EB";
+  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let randomText = prefix;
+
+  for (let i = prefix.length; i < 22; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    randomText += characters.charAt(randomIndex);
+  }
+
+  return randomText;
+ }
 var desct =''
 if(config.LANG === 'SI') desct = 'එය ඔබ ලබා දුන් දේ සඳහා chatgpt AI මත සොයයි.'
 else desct = "It search on chatgpt ai for what you provided."
@@ -42,8 +54,37 @@ let cyber = `👋 HELLO ${pushname} I'm alive now
  ` 
 	  
 
- await conn.sendMessage(from,{image:{url:"https://i.ibb.co/SsqGnFc/20240905-163614.jpg"},caption:cyber},{quoted:mek})
+let vv = await conn.sendMessage(from,{image:{url:"https://i.ibb.co/SsqGnFc/20240905-163614.jpg"},caption:cyber},{quoted:mek})
 
+	conn.ev.on('messages.upsert', async (msgUpdate) => {
+            const msg = msgUpdate.messages[0];
+            if (!msg.message || !msg.message.extendedTextMessage) return;
+
+            const selectedOption = msg.message.extendedTextMessage.text.trim();
+
+            if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === vv.key.id) {
+                switch (selectedOption) {
+                    case '1':
+                        reply(`
+var inital = new Date().getTime();
+let ping = await conn.sendMessage(from , { text: '```Pinging!!!```'  }, { quoted: mek, messageId:genMsgId() } )
+var final = new Date().getTime();
+await conn.sendMessage(from, { delete: ping.key })
+return await conn.sendMessage(from , { text: '*Pong*\n *' + (final - inital) + ' ms* '  }, { quoted: mek ,messageId:genMsgId()} )`
+                        break;
+				default:
+                        reply("Invalid option. Please select a valid option🔴");
+                }
+
+            }
+        });
+
+    } catch (e) {
+        console.error(e);
+        await conn.sendMessage(from, { react: { text: '❌', key: mek.key } })
+        reply('An error occurred while processing your request.');
+    }
+});
 
 
 }catch(e){
