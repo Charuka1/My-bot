@@ -639,26 +639,69 @@ await conn.sendMessage(from, { react: { text: '📥', key: mek.key }})
 if(!q) return await conn.sendMessage(from , { text: 'Need apk link...' }, { quoted: mek } ) 
 const data = await apkdl.download(q)
 	
-let listdata = `*\`MIZUKI MD APK DOWNLOADER\`*
+let listdata = `*║📲𝗠𝗜𝗭𝗨𝗞𝗜 𝗠𝗗 𝗔𝗣𝗞 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥📲║*
 
 *🔢 REPLY BELOW NUMBER*
 
 *1| APK INFO🪩*
 *2| APK DOWNLOADE📁*`
+
+
+let desc = `╔═════════════════╗
+║📲MIZUKI MD APK INFO ║
+╚═════════════════╝
+📚 Name : ${data.name}
+
+📦 Developer : ${data.package}
+
+⬆️ Last update : ${data.lastup}
+
+📥 Size : ${data.size}
+═══════════════════`
+
 	
 await conn.sendMessage(from, { image: { url: data.icon }, caption: listdata }, { quoted: mek })
-	
-if (data.size.includes('GB')) return await conn.sendMessage(from , { text: 'File size is too big...' }, { quoted: mek } )
-	
-if (data.size.includes('MB') && data.size.replace(' MB','') > config.MAX_SIZE) return await conn.sendMessage(from , { text: 'File size is too big...' }, { quoted: mek } )
-	
-let sendapk = await conn.sendMessage(from , { document : { url : data.dllink } , mimetype : 'application/vnd.android.package-archive' , fileName : data.name + '.' + 'apk',caption: '' } , { quoted: mek })
-	
-await conn.sendMessage(from, { react: { text: '📁', key: sendapk.key }})
-await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
-} catch (e) {
-    reply('ERROR !!')
-    console.log(e)
 
-}
+
+if (data.size.includes('GB')) return await conn.sendMessage(from , { text: 'File size is too big...' }, { quoted: mek } )
+
+
+if (data.size.includes('MB') && data.size.replace(' MB','') > config.MAX_SIZE) return await conn.sendMessage(from , { text: 'File size is too big...' }, { quoted: mek } )
+
+
+let sendapk = await conn.sendMessage(from , { document : { url : data.dllink } , mimetype : 'application/vnd.android.package-archive' , fileName : data.name + '.' + 'apk',caption: '' } , { quoted: mek })
+
+
+await conn.sendMessage(from, { react: { text: '📁', key: sendapk.key }})
+
+await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
+
+
+conn.ev.on('messages.upsert', async (msgUpdate) => {
+            const msg = msgUpdate.messages[0];
+            if (!msg.message || !msg.message.extendedTextMessage) return;
+
+            const selectedOption = msg.message.extendedTextMessage.text.trim();
+
+            if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === vv.key.id) {
+                switch (selectedOption) {
+                    case '1':                      	
+                     await conn.sendMessage(from, { image: { url: data.icon }, caption: desc }, { quoted: mek })
+                     break;
+                    case '2':               
+let sendapk = await conn.sendMessage(from , { document : { url : data.dllink } , mimetype : 'application/vnd.android.package-archive' , fileName : data.name + '.' + 'apk',caption: '' } , { quoted: mek })
+		     break;
+                    default:
+                        reply("Invalid option. Please select a valid option🔴");
+                }
+
+            }
+        });
+
+    } catch (e) {
+        console.error(e);
+        await conn.sendMessage(from, { react
+: { text: '❌', key: mek.key } })
+        reply('An error occurred while processing your request.');
+    }
 });
