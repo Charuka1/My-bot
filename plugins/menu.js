@@ -332,7 +332,7 @@ async(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sen
 var inital = new Date().getTime();
 let ping = await conn.sendMessage(from , { text: '```Pinging!!!```'  }, { quoted: mek, messageId:genMsgId() } )
 var final = new Date().getTime();
-await conn.sendMessage(from, { delete: ping.key })
+await conn.sendMessage(from, { edite: ping.key })
 return await conn.sendMessage(from , { text: '*Pong*\n *' + (final - inital) + ' ms* '  }, { quoted: mek ,messageId:genMsgId()} )
 } catch (e) {
 reply('*Error !!*')
