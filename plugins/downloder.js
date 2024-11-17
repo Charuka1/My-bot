@@ -648,15 +648,17 @@ let listdata = `*║📲𝗠𝗜𝗭𝗨𝗞𝗜 𝗠𝗗 𝗔𝗣𝗞 𝗗𝗢�
 
 
 let desc = `╔═════════════════╗
-║📲MIZUKI MD APK INFO ║
+║📲MIZUKI MD APK INFO  ║
 ╚═════════════════╝
-📚 Name : ${data.name}
+*📚 Name :* ${data.name}
 
-📦 Developer : ${data.package}
+*📦 Developer :* ${data.package}
 
-⬆️ Last update : ${data.lastup}
+*⬆️ Last update :* ${data.lastup}
 
-📥 Size : ${data.size}
+*📥 Size :* ${data.size}
+
+*\`ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍɪᴢᴜᴋɪ ᴍᴅ*\`
 ═══════════════════`
 
 	
