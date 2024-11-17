@@ -85,6 +85,21 @@ if(!commands[i].dontAddCommandList){
   menuc8 += `│ ⦁ .${commands[i].pattern}\n`
 }}};
 
+let menuc9 = ``
+for (let i=0;i<commands.length;i++) { 
+if(commands[i].category === 'fun'){
+if(!commands[i].dontAddCommandList){
+  menuc8 += `│ ⦁ .${commands[i].pattern}\n`
+}}};
+
+let menuc10 = ``
+for (let i=0;i<commands.length;i++) { 
+if(commands[i].category === 'other'){
+if(!commands[i].dontAddCommandList){
+  menuc8 += `│ ⦁ .${commands[i].pattern}\n`
+}}};
+
+
         let desc = `*👋 Hello ${pushname}*
 
 *╭═「 ᴄᴏᴍᴍᴀɴᴅ ᴘᴀɴᴇʟ 」*
@@ -105,6 +120,8 @@ if(!commands[i].dontAddCommandList){
 *╎ 06 ANIME*
 *╎ 07 MAIN*
 *╎ 08 GROUP*
+*╎ 09 FUN*
+*╎ 10 OTHER*
 *╰────────────────○●►*
 *╎ \`ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍɪᴢᴜᴋɪ ᴍᴅ\`*
 *└────────────────◒◒►*`;
@@ -168,7 +185,25 @@ ${menuc7}╰─────────────────●●►`);
 ${menuc8}╰─────────────────●●►`);
 
 
-                        break;
+                        
+                    break;
+                    case '8':               
+                        reply(`*◈╾──FUN MENU──╼◈*
+
+╭────────●●►
+${menuc9}╰─────────────────●●►`);
+
+
+                    break;
+                    case '8':               
+                        reply(`*◈╾──OTHER MENU──╼◈*
+
+╭────────●●►
+${menuc10}╰─────────────────●●►`);
+
+
+
+                        break:
                     default:
                         reply("Invalid option. Please select a valid option🔴");
                 }
