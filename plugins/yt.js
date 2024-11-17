@@ -6,7 +6,7 @@ const { fetchJson } = require('../lib/functions')
 const apilink = 'https://dark-yasiya-api-new.vercel.app' // API LINK ( DO NOT CHANGE THIS!! )
 
 cmd({
-    pattern: "song2",
+    pattern: "play",
     desc: "download songs.",
     category: "download",
     react: "🎧",
@@ -23,16 +23,20 @@ const url = data.url
     
 const ytdl = await fetchJson(`${apilink}/download/ytmp3?url=${data.url}`)
     
-let message = `‎‎           🎶 YT SONG DOWNLOADER 🎶
+let message = `‎🎶 YT SONG DOWNLOADER 🎶
 
 
  🎵 ‎Title: ${data.title}
+
  ⏱ Duration: ${data.timestamp}
+
  🌏 Uploaded: ${data.ago}
+
  🧿 Views: ${data.views}
+
  🤵 Author: ${data.author.name}
-  📎 Url: ${data.url}
-`
+
+ 📎 Url: ${data.url}`
   
 await conn.sendMessage(from, { image: { url : data.thumbnail }, caption: message }, { quoted : mek })
   
