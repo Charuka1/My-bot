@@ -652,4 +652,5 @@ await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
     reply('ERROR !!')
     console.log(e)
 
-
+}
+});
