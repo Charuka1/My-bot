@@ -32,42 +32,42 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 for (let i=0;i<commands.length;i++) { 
 if(commands[i].category === 'owner '){
 if(!commands[i].dontAddCommandList){
-menuc1 += `*│ ⦁ * .${commands[i].pattern}\n`
+menuc1 += `│ ⦁ .${commands[i].pattern}\n`
 }}};
 
 let menuc2 = ``
 for (let i=0;i<commands.length;i++) { 
   if(commands[i].category === 'convert'){
   if(!commands[i].dontAddCommandList){
-  menuc2 += `*│ ⦁ * .${commands[i].pattern}\n`
+  menuc2 += `│ ⦁ .${commands[i].pattern}\n`
   }}};
 
 let menuc3 = ``
 for (let i=0;i<commands.length;i++) { 
 if(commands[i].category === 'al'){
   if(!commands[i].dontAddCommandList){
-    menuc3 += `*│ ⦁ * .${commands[i].pattern}\n`
+    menuc3 += `│ ⦁ .${commands[i].pattern}\n`
 }}};
 
 let menuc4 = ``
 for (let i=0;i<commands.length;i++) { 
 if(commands[i].category === 'search'){
   if(!commands[i].dontAddCommandList){
-menuc4 += `*│ ⦁ * .${commands[i].pattern}\n`
+menuc4 += `│ ⦁ .${commands[i].pattern}\n`
 }}};
 
 let menuc5 = ``
 for (let i=0;i<commands.length;i++) { 
 if(commands[i].category === 'download'){
   if(!commands[i].dontAddCommandList){
-menuc5 += `*│ ⦁ * .${commands[i].pattern}\n`
+menuc5 += `│ ⦁ .${commands[i].pattern}\n`
 }}};
 
 let menuc6 = ``
 for (let i=0;i<commands.length;i++) { 
 if(commands[i].category === 'anime'){
 if(!commands[i].dontAddCommandList){
-  menuc6 += `*│ ⦁ * .${commands[i].pattern}\n`
+  menuc6 += `│ ⦁ .${commands[i].pattern}\n`
 }}};
 
 
@@ -75,14 +75,14 @@ let menuc7 = ``
 for (let i=0;i<commands.length;i++) { 
 if(commands[i].category === 'main'){
 if(!commands[i].dontAddCommandList){
-  menuc7 += `*│ ⦁ * .${commands[i].pattern}\n`
+  menuc7 += `│ ⦁ .${commands[i].pattern}\n`
 }}};
 
 let menuc8 = ``
 for (let i=0;i<commands.length;i++) { 
 if(commands[i].category === 'group'){
 if(!commands[i].dontAddCommandList){
-  menuc8 += `*│ ⦁ * .${commands[i].pattern}\n`
+  menuc8 += `│ ⦁ .${commands[i].pattern}\n`
 }}};
 
         let desc = `*👋 Hello ${pushname}*
@@ -131,49 +131,49 @@ if(!commands[i].dontAddCommandList){
 
 ╭────────●●►
 *${menuc2}*
-╰──────────────────●●►`);
+╰─────────────────●●►`);
                         break;
                     case '3':               
                         reply(`*◈╾──────AI MENU──────╼◈*
 
 ╭────────●●►
 *${menuc3}*
-╰──────────────────●●►`);
+╰─────────────────●●►`);
                         break;
                     case '4':               
-                        reply(`*◈╾────SEARCH MENU────╼◈*
+                        reply(`*◈╾───SEARCH MENU───╼◈*
 
 ╭────────●●►
 *${menuc4}*
-╰──────────────────●●►`);
+╰─────────────────●●►`);
                         break;
                     case '5':               
                         reply(`*◈╾───DOWNLOAD MENU──╼◈*
 
 ╭────────●●►
 *${menuc5}*
-╰──────────────────●●►`);
+╰─────────────────●●►`);
                         break;
                     case '7':               
 reply(`*◈╾──NETHU MAIN MENU──╼◈*
 
 ╭────────●●►
 *${menuc6}*
-╰──────────────────●●►`);
+╰─────────────────●●►`);
                         break;
                     case '8':               
                         reply(`*◈╾──GROUP MENU─────╼◈*
 
 ╭────────●●►
 *${menuc7}*
-╰──────────────────●●►`);
+╰─────────────────●●►`);
                        break;
                     case '6':               
                         reply(`*◈╾──FUN MENU──╼◈*
 
 ╭────────●●►
 *${menuc8}*
-╰──────────────────●●►`);
+╰─────────────────●●►`);
 
 
                         break;
