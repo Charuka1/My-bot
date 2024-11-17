@@ -678,15 +678,9 @@ conn.ev.on('messages.upsert', async (msgUpdate) => {
                      await conn.sendMessage(from, { image: { url: data.icon }, caption: desc }, { quoted: mek })
                      break;
                     case '2':
-if (data.size.includes('GB')) return await conn.sendMessage(from , { text: 'File size is too big...' }, { quoted: mek } )
-
-
-if (data.size.includes('MB') && data.size.replace(' MB','') > config.MAX_SIZE) return await conn.sendMessage(from , { text: 'File size is too big...' }, { quoted: mek } )
-
 let sendapk = await conn.sendMessage(from , { document : { url : data.dllink } , mimetype : 'application/vnd.android.package-archive' , fileName : data.name + '.' + 'apk',caption: '' } , { quoted: mek })
-				await conn.sendMessage(from, { react: { text: '📁', key: sendapk.key }})
-
-await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
+		    await conn.sendMessage(from, { react: { text: '📁', key: sendapk.key }})
+                    await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
 
 		     break;
                     default:
