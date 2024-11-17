@@ -660,13 +660,8 @@ let desc = `╔═════════════════╗
 ═══════════════════`
 
 	
-await conn.sendMessage(from, { image: { url: data.icon }, caption: listdata }, { quoted: mek })
+let vv = await conn.sendMessage(from, { image: { url: data.icon }, caption: listdata }, { quoted: mek })
 
-
-
-await conn.sendMessage(from, { react: { text: '📁', key: sendapk.key }})
-
-await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
 
 
 conn.ev.on('messages.upsert', async (msgUpdate) => {
@@ -687,6 +682,10 @@ if (data.size.includes('GB')) return await conn.sendMessage(from , { text: 'File
 if (data.size.includes('MB') && data.size.replace(' MB','') > config.MAX_SIZE) return await conn.sendMessage(from , { text: 'File size is too big...' }, { quoted: mek } )
 
 let sendapk = await conn.sendMessage(from , { document : { url : data.dllink } , mimetype : 'application/vnd.android.package-archive' , fileName : data.name + '.' + 'apk',caption: '' } , { quoted: mek })
+				await conn.sendMessage(from, { react: { text: '📁', key: sendapk.key }})
+
+await conn.sendMessage(from, { react: { text: '✔', key: mek.key }})
+
 		     break;
                     default:
                         reply("Invalid option. Please select a valid option🔴");
