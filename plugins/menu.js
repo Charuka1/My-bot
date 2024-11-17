@@ -279,49 +279,51 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 
 cmd({
     pattern: "system",
-    alias: ["info","botinfo"],
-    desc: "check up time",
+    alias: ["status","botinfo"],
+    react: "⚙️",
+    desc: "Check up time , ram usage and more",
     category: "main",
-    react: "🕹️",
     filename: __filename
 },
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-try{ 
-
-let status =` 
-
- *⏳Uptime*:  ${runtime(process.uptime())}    
- *📟Ram usage*: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB
- *⚙️HostName*: ${os.hostname()}
- *👨‍💻Owner*: ɴᴇᴛʜᴍɪᴋᴀ ᴍᴀɪɴ 
- *🧬Version*: 2.0.0
-    
-> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ɴᴇᴛʜᴍɪᴋᴀ ᴍᴀɪɴ
+try{
+let status = `┌────────────────────
+├\`⏰ Uptime\`:-  ${runtime(process.uptime())}
+├\` 📟 Ram usage\`:-  ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
+├\`⚙️ Platform\`:-  ${os.hostname()}
+├\`👨‍💻 Owners\`:- charuka ofc
+├\`🧬 Version\`:- 1.0.0
+└─────────────────────
 `
-const imageUrl='https://iili.io/29wAvDu.jpg';
-    await conn.sendMessage(from,{image:{url:imageUrl},caption:status},{quoted:mek||null})}catch(e){console.log(e);reply(`Error: ${e}`);}});
-    
+return reply(`${status}`)
+
+}catch(e){
+console.log(e)
+reply(`${e}`)
+}
+})
 //=================== ping command =======================
 
 
 cmd({
     pattern: "ping",
-    react: "⚡",
+    react: "📟",
     alias: ["speed"],
     desc: "Check bot\'s ping",
     category: "main",
     use: '.ping',
     filename: __filename
 },
-async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-try{
+async(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isSachintha, isSavi, isSadas, isMani, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+    try{
 var inital = new Date().getTime();
-let ping = await conn.sendMessage(from , { text: '```Pinging To index.js!!!```'  }, { quoted: mek } )
+let ping = await conn.sendMessage(from , { text: '```Pinging!!!```'  }, { quoted: mek, messageId:genMsgId() } )
 var final = new Date().getTime();
-return await conn.edit(ping, '*📍 Pong*\n *' + (final - inital) + ' ms* ' )
+await conn.sendMessage(from, { delete: ping.key })
+return await conn.sendMessage(from , { text: '*Pong*\n *' + (final - inital) + ' ms* '  }, { quoted: mek ,messageId:genMsgId()} )
 } catch (e) {
-reply(`${e}`)
-console.log(e)
+reply('*Error !!*')
+l(e)
 }
 })
 
