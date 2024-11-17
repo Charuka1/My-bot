@@ -60,6 +60,9 @@
     "@bochilteam/scraper":"5.0.1",
     "@sasmeee/wabetainfo":"1.1.1",
     "@sl-code-lords/esana-news": "latest",
-    "hirunews-scrap": "^1.1.2"
+    "hirunews-scrap": "^1.1.2",
+    "ruhend-scraper":"8.0.3",
+    "child_process":"1.0.2"
+
   }
 }
