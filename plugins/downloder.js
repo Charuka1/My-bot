@@ -628,9 +628,8 @@ const vv = await conn.sendMessage( from, { image: { url: xv_info.result.image ||
 
 	
 cmd({
-    pattern: "dapk",
+    pattern: "apk",
     react: "📱",
-    desc: "Download apk",
     category: "download",
     filename: __filename
 },
