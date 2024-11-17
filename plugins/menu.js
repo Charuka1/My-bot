@@ -9,6 +9,19 @@ const {cmd , commands} = require('../lib/command')
 const os = require("os")
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')
 
+function genMsgId() {
+  const prefix = "3EB";
+  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let randomText = prefix;
+
+  for (let i = prefix.length; i < 22; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    randomText += characters.charAt(randomIndex);
+  }
+
+  return randomText;
+}
+
 cmd({
     pattern: "menu",
     alias: ["list"],
