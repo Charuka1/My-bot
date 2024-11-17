@@ -203,7 +203,7 @@ ${menuc10}╰─────────────────●●►`);
 
 
 
-                        break:
+                        break;
                     default:
                         reply("Invalid option. Please select a valid option🔴");
                 }
