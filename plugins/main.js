@@ -194,12 +194,12 @@ try{
 if(!q) return reply(needus)
 var res = ''
 try{
-res = (await fetchJson('https://vihangayt.me/tools/chatgpt?q=' + q)).data
+res = (await fetchJson('https://www.dark-yasiya-api.site/ai/chatgpt?q=hi' + q)).data
 } catch (e) {
 try{
-res = (await fetchJson('https://vihangayt.me/tools/chatgpt2?q=' + q)).data
+res = (await fetchJson('https://www.dark-yasiya-api.site/ai/chatgpt?q=hi' + q)).data
 } catch (e) {
-res = (await fetchJson('https://vihangayt.me/tools/chatgpt3?q=' + q)).data
+res = (await fetchJson('https://www.dark-yasiya-api.site/ai/chatgpt?q=hi' + q)).data
 }
 }
 
@@ -222,7 +222,7 @@ cmd({
 async(conn, mek, m,{from, l, prefix, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
 if(!q) return reply(needus)
-var res = (await fetchJson('https://chatgpt4.my.id/api/processdata?question=' + q)).response
+var res = (await fetchJson('https://www.dark-yasiya-api.site/ai/chatgpt?q=hi' + q)).response
 
 return await reply(res)
 } catch (e) {
