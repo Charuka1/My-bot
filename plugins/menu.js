@@ -102,7 +102,7 @@ if(!commands[i].dontAddCommandList){
 *╎ 03 AI*
 *╎ 04 SEARCH*
 *╎ 05 DOWNLOAD* 
-*╎ 06 FUN*
+*╎ 06 ANIME*
 *╎ 07 MAIN*
 *╎ 08 GROUP*
 *╰────────────────○●►*
@@ -123,56 +123,56 @@ if(!commands[i].dontAddCommandList){
                         reply(`*◈╾──OWNER MENU──╼◈*
 
 ╭────────●●►
-*${menuc1}*
+${menuc1}
 ╰──────────────────●●►`);
                         break;
                     case '2':               
                         reply(`*◈╾──CONVERT MENU──╼◈*
 
 ╭────────●●►
-*${menuc2}*
+${menuc2}
 ╰─────────────────●●►`);
                         break;
                     case '3':               
                         reply(`*◈╾──────AI MENU──────╼◈*
 
 ╭────────●●►
-*${menuc3}*
+${menuc3}
 ╰─────────────────●●►`);
                         break;
                     case '4':               
                         reply(`*◈╾───SEARCH MENU───╼◈*
 
 ╭────────●●►
-*${menuc4}*
+${menuc4}
 ╰─────────────────●●►`);
                         break;
                     case '5':               
-                        reply(`*◈╾───DOWNLOAD MENU──╼◈*
+                        reply(`*◈╾───DOWNLOADE MENU──╼◈*
 
 ╭────────●●►
-*${menuc5}*
+${menuc5}
+╰─────────────────●●►`);
+                        break;
+                    case '6':               
+reply(`*◈╾──ANIME MENU──╼◈*
+
+╭────────●●►
+${menuc6}
 ╰─────────────────●●►`);
                         break;
                     case '7':               
-reply(`*◈╾──NETHU MAIN MENU──╼◈*
+                        reply(`*◈╾──MAIN MENU─────╼◈*
 
 ╭────────●●►
-*${menuc6}*
-╰─────────────────●●►`);
-                        break;
-                    case '8':               
-                        reply(`*◈╾──GROUP MENU─────╼◈*
-
-╭────────●●►
-*${menuc7}*
+${menuc7}
 ╰─────────────────●●►`);
                        break;
-                    case '6':               
-                        reply(`*◈╾──FUN MENU──╼◈*
+                    case '8':               
+                        reply(`*◈╾──GROUP MENU──╼◈*
 
 ╭────────●●►
-*${menuc8}*
+${menuc8}
 ╰─────────────────●●►`);
 
 
