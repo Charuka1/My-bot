@@ -630,7 +630,8 @@ const vv = await conn.sendMessage( from, { image: { url: xv_info.result.image ||
 cmd({
     pattern: "dapk",
     react: "📱",
-    dontAddCommandList: true,
+    desc: "Download apk",
+    category: "download",
     filename: __filename
 },
 async(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
