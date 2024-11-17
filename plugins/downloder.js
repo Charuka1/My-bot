@@ -639,10 +639,12 @@ await conn.sendMessage(from, { react: { text: '📥', key: mek.key }})
 if(!q) return await conn.sendMessage(from , { text: 'Need apk link...' }, { quoted: mek } ) 
 const data = await apkdl.download(q)
 	
-let listdata = `📚 Name : ${data.name}
-📦 Developer : ${data.package}
-⬆️ Last update : ${data.lastup}
-📥 Size : ${data.size}`
+let listdata = `*\`MIZUKI MD APK DOWNLOADER\`*
+
+*🔢 REPLY BELOW NUMBER*
+
+*1| APK INFO🪩*
+*2| APK DOWNLOADE📁*`
 	
 await conn.sendMessage(from, { image: { url: data.icon }, caption: listdata }, { quoted: mek })
 	
