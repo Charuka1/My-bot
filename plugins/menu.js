@@ -7,7 +7,7 @@ const {cmd , commands} = require('../lib/command')
 //============= menu command ================
 
 const os = require("os")
-const {runtime} = require('../lib/functions')
+const {runtime,getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')
 
 cmd({
     pattern: "menu",
