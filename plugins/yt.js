@@ -23,26 +23,25 @@ const url = data.url
     
 const ytdl = await fetchJson(`${apilink}/download/ytmp3?url=${data.url}`)
     
-let message = `‎🎶 YT SONG DOWNLOADER 🎶
+let message = `‎*🎶 YT SONG DOWNLOADER 🎶*
 
+*🎵 ‎Title:* ${data.title}
 
- 🎵 ‎Title: ${data.title}
+*⏱ Duration:* ${data.timestamp}
 
- ⏱ Duration: ${data.timestamp}
+*🌏 Uploaded:* ${data.ago}
 
- 🌏 Uploaded: ${data.ago}
+*🧿 Views:* ${data.views}
 
- 🧿 Views: ${data.views}
+*🤵 Author:* ${data.author.name}
 
- 🤵 Author: ${data.author.name}
-
- 📎 Url: ${data.url}
+*📎 Url:* ${data.url}
  
- ╭╾━┉╾━┉╾━┉╾━┉╾━┉╾━┉╾━❍
+ ╭╾━┉╾━┉╾━┉╾━┉╾━┉╾┉━❍
  ╎🔢 Reply Below Number
- ╰╾━┉╾━┉╾━┉╾━┉╾━┉╾━┉╾━❍
+ ╰╾━┉╾━┉╾━┉╾━┉╾━┉╾┉━❍
+ 
  *1| AUDIO TYPE🎵*
-
  *2| DOCUMENT TYPE📁*`
 
   
