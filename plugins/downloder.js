@@ -146,7 +146,7 @@ l(e)
 
 // TIKTOK DOWNLOAD COMMAND
 
-const apilink = 'https://dark-yasiya-api-new.vercel.app' // API LINK ( DO NOT CHANGE THIS!! )
+const apilink = 'https://www.dark-yasiya-api.site' // API LINK ( DO NOT CHANGE THIS!! )
 
 
 cmd({
@@ -235,7 +235,7 @@ conn.ev.on('messages.upsert', async (msgUpdate) => {
 
 // MEDIAFIRE DOWNLOAD COMMAND
 
-const aapilink = 'https://dark-yasiya-api-new.vercel.app'
+const aapilink = 'https://www.dark-yasiya-api.site'
 
 
 cmd({
@@ -357,7 +357,7 @@ l(e)
 }
 })
 //============================================================
-const appilink = 'https://dark-yasiya-api-new.vercel.app'
+const appilink = 'https://www.dark-yasiya-api.site'
 
 
 cmd({
@@ -437,7 +437,7 @@ const vv = await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc
 
 //================================video-dl=====================================
 
-const appilink3 = 'https://dark-yasiya-api-new.vercel.app'
+const appilink3 = 'https://www.dark-yasiya-api.site'
 
 
 cmd({
@@ -550,7 +550,7 @@ reply(`${e}`)
 })
 
 
-const apilink8 = 'https://dark-yasiya-api-new.vercel.app' // API LINK ( DO NOT CHANGE THIS!! )
+const apilink8 = 'https://www.dark-yasiya-api.site' // API LINK ( DO NOT CHANGE THIS!! )
 
 
 
