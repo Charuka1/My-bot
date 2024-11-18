@@ -36,14 +36,52 @@ let message = `‎🎶 YT SONG DOWNLOADER 🎶
 
  🤵 Author: ${data.author.name}
 
- 📎 Url: ${data.url}`
+ 📎 Url: ${data.url}
+ 
+ ╭╾━┉╾━┉╾━┉╾━┉╾━┉╾━┉╾━❍
+ ╎🔢 Reply Below Number
+ ╰╾━┉╾━┉╾━┉╾━┉╾━┉╾━┉╾━❍
+ *1| AUDIO TYPE🎵*
+
+ *2| DOCUMENT TYPE📁*`
+
   
-await conn.sendMessage(from, { image: { url : data.thumbnail }, caption: message }, { quoted : mek })
+const vv = await conn.sendMessage(from, { image: { url : data.thumbnail }, caption: message }, { quoted : mek })
   
-// SEND AUDIO NORMAL TYPE and DOCUMENT TYPE
-await conn.sendMessage(from, { audio: { url: ytdl.result.dl_link }, mimetype: "audio/mpeg" }, { quoted: mek })
-await conn.sendMessage(from, { document: { url: ytdl.result.dl_link }, mimetype: "audio/mpeg", fileName: data.title + ".mp3", caption: `${data.title}`}, { quoted: mek })
-  
+
+                                                                                                                                                          
+conn.ev.on('messages.upsert', async (msgUpdate) => {
+            const msg = msgUpdate.messages[0];
+            if (!msg.message || !msg.message.extendedTextMessage) return;
+
+            const selectedOption = msg.message.extendedTextMessage.text.trim();
+
+            if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === vv.key.id) {
+                switch (selectedOption) {
+                    case '1':
+                        await conn.sendMessage(from, { audio: { url: ytdl.result.dl_link }, mimetype: "audio/mpeg" }, { quoted: mek })
+
+                        
+                        break;
+                    case '2':               
+                        // Send Document File
+                        await conn.sendMessage(from, { document: { url: ytdl.result.dl_link }, mimetype: "audio/mpeg", fileName: data.title + ".mp3", caption: `${data.title}`}, { quoted: mek })
+                        await conn.sendMessage(from, { react: { text: '✅', key: mek.key } })
+                        break;
+                    default:
+                        reply("Invalid option. Please select a valid option🔴");
+                }
+
+            }
+        });
+
+    } catch (e) {
+        console.error(e);
+        await conn.sendMessage(from, { react: { text: '❌', key: mek.key } })
+        reply('An error occurred while processing your request.');
+    }
+});
+
 } catch(e){
 console.log(e)
 reply(e)
