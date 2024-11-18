@@ -82,10 +82,5 @@ conn.ev.on('messages.upsert', async (msgUpdate) => {
     }
 });
 
-} catch(e){
-console.log(e)
-reply(e)
-}
-})
 
 // FOLLOW US : https://whatsapp.com/channel/0029VaaPfFK7Noa8nI8zGg27
