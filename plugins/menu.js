@@ -264,7 +264,8 @@ var inital = new Date().getTime();
 let ping = await conn.sendMessage(from , { text: '```Pinging!!!```'  }, { quoted: mek, messageId:genMsgId() } )
 var final = new Date().getTime();
 await conn.sendMessage(from, { delete: ping.key })
-return await conn.sendMessage(from , { text: '*Pong*\n *' + (final - inital) + ' ms* '  }, { quoted: mek ,messageId:genMsgId()} )
+let ss = return await conn.sendMessage(from , { text: '*Pong*\n *' + (final - inital) + ' ms* '  }, { quoted: mek ,messageId:genMsgId()} )
+   await conn.sendMessage(from, { react: { text: '✔', key: ss.key } })
 } catch (e) {
 reply('*Error !!*')
 l(e)
