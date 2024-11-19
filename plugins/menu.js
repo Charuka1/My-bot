@@ -264,8 +264,7 @@ var inital = new Date().getTime();
 let ping = await conn.sendMessage(from , { text: '```Pinging!!!```'  }, { quoted: mek, messageId:genMsgId() } )
 var final = new Date().getTime();
 await conn.sendMessage(from, { delete: ping.key })
-let ss = return await conn.sendMessage(from , { text: '*Pong*\n *' + (final - inital) + ' ms* '  }, { quoted: mek ,messageId:genMsgId()} )
-   await conn.sendMessage(from, { react: { text: '✔', key: ss.key } })
+return await conn.sendMessage(from , { text: '*Pong*\n *' + (final - inital) + ' ms* '  }, { quoted: mek ,messageId:genMsgId()} )
 } catch (e) {
 reply('*Error !!*')
 l(e)
@@ -322,9 +321,7 @@ let about = ` *👋 𝗛𝗘𝗟𝗟𝗢 𝗧𝗛𝗘𝗜𝗥 ${senderNumber}*
               𝐂𝐑𝐄𝐀𝐓𝐄𝐃 𝐁𝐘 𝐍𝐄𝐓𝐇𝐌𝐈𝐊𝐀 𝐌𝐀𝐈𝐍...
               
              
-*ʏᴏᴜᴛᴜʙᴇ :* https://www.youtube.com/@SlNethuMax
-      
-*ᴡʜᴀᴛꜱᴀᴘᴘ ᴄʜᴀɴɴᴇʟ :* https://whatsapp.com/channel/0029VagCogPGufJ3kZWjsW3A
+*ʏᴏᴜᴛᴜʙᴇ :* https://
 
               
 > ᴘᴀᴡᴇʀᴇᴅ ʙʏ ɴᴇᴛʜᴍɪᴋᴀ ᴍᴀɪɴ`
