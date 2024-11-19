@@ -258,13 +258,12 @@ cmd({
     use: '.ping',
     filename: __filename
 },
-async(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isSachintha, isSavi, isSadas, isMani, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-    try{
+async(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+try{
 var inital = new Date().getTime();
-let ping = await conn.sendMessage(from , { text: '```Pinging!!!```'  }, { quoted: mek, messageId:genMsgId() } )
+let ping = await conn.sendMessage(from , { text: '```Pinging To MIZUKI-MD!!!```'  }, { quoted: mek } )
 var final = new Date().getTime();
-await conn.sendMessage(from, { delete: ping.key })
-return await conn.sendMessage(from , { text: '*Pong*\n *' + (final - inital) + ' ms* '  }, { quoted: mek ,messageId:genMsgId()} )
+return await conn.edite(ping, '*Pong*\n *' + (final - inital) + ' ms* ' )
 } catch (e) {
 reply('*Error !!*')
 l(e)
