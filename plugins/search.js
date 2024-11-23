@@ -9,7 +9,7 @@ const Esana = require('@sl-code-lords/esana-news');
 var api = new Esana()
 
 var tmsg =''
-if(config.LANG === 'SI') tmsg = 'එය whatsapp beta news ලබා දෙයි.'
+if(setting.LANG === 'SI') tmsg = 'එය whatsapp beta news ලබා දෙයි.'
 else tmsg = "It gives whatsapp beta news."
 
 
@@ -144,7 +144,7 @@ reply(e)
 
 // NEW ADDED NEWS SITE [ BBC , LANKADEEPA ]
 
-const apilink = 'https://dark-yasiya-news-apis.vercel.app/api' // API LINK ( DO NOT CHANGE THIS!! )
+const apilink = 'https://www.dark-yasiya-api.site/api' // API LINK ( DO NOT CHANGE THIS!! )
 
 
 // ================================LANKADEEPA NEWS========================================
@@ -218,7 +218,7 @@ reply(e)
 })
 
 
-const apilink3 = 'https://dark-yasiya-news-apis.vercel.app/api' // API LINK ( DO NOT CHANGE THIS!! )
+const apilink3 = 'https://www.dark-yasiya-api.site/api' // API LINK ( DO NOT CHANGE THIS!! )
 
 
 // ================================HIRU NEWS========================================
