@@ -10,7 +10,7 @@ var videotime = 60000 // 1000 min
 const dl = require('@bochilteam/scraper')  
 const ytdl = require('youtubedl-core');
 const api = require("caliph-api");
-const fs = require('fs-extra')
+const fe = require('fs-extra')
 var videotime = 60000 // 1000 min
 function ytreg(url) {
     const ytIdRegex = /(?:http(?:s|):\/\/|)(?:(?:www\.|)youtube(?:\-nocookie|)\.com\/(?:watch\?.*(?:|\&)v=|embed|shorts\/|v\/)|youtu\.be\/)([-_0-9A-Za-z]{11})/
