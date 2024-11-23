@@ -6,7 +6,11 @@ const fg = require('api-dylux');
 const yts = require('yt-search');
 const ytsearch = require(`ytsearch-venom`)
 const apkdl = require('../lib/apkdl')
-
+var videotime = 60000 // 1000 min
+function ytreg(url) {
+    const ytIdRegex = /(?:http(?:s|):\/\/|)(?:(?:www\.|)youtube(?:\-nocookie|)\.com\/(?:watch\?.*(?:|\&)v=|embed|shorts\/|v\/)|youtu\.be\/)([-_0-9A-Za-z]{11})/
+    return ytIdRegex.test(url);
+}
 
 const { mediafireDl } = require('mfiredlcore-vihangayt')
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')
@@ -509,7 +513,19 @@ const vv = await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc
                         let downloaddocUrl = downdoc.dl_url;
                         let mg = await conn.sendMessage(from, { document: { url:downloaddocUrl }, caption: '*ᴘᴀᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄᴄʜᴀʀᴜᴋᴀ*', mimetype: 'video/mp4', fileName:data.title + ".mp4"}, { quoted: mek });
                         await conn.sendMessage(from, { react: { text: '✅', key: mg.key } })
+				
                         break;
+			case '3':
+
+			if (!ytreg(q)) return await  reply(urlneed)
+const yt2 = await  dl.youtubedl(q)
+let yt = yt2
+let size = await getsize(await yt.video['240p'].download())
+if (size.includes('MB') && size.replace(' MB','') >= config.MAX_SIZE) return await conn.sendMessage(from, { text: sizetoo }, { quoted: mek });
+if (size.includes('GB')) return await conn.sendMessage(from, { text: sizetoo }, { quoted: mek });
+let senda = await conn.sendMessage(from, { video: {url: await yt.video['240p'].download() },caption: config.FOOTER}, { quoted: mek })  
+await conn.sendMessage(from, { react: { text: '🎥', key: senda.key }})
+                    break;
                     default:
                         reply("Invalid option. Please select a valid option🔴");
                 }
