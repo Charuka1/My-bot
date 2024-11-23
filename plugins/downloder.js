@@ -487,6 +487,7 @@ let desc = `
 
 *1| Audio Type 📽️*
 *2| Document Type 📁*
+*3| 240p
 `
 const vv = await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc},{quoted:mek});
 
@@ -523,7 +524,7 @@ let yt = yt2
 let size = await getsize(await yt.video['240p'].download())
 if (size.includes('MB') && size.replace(' MB','') >= config.MAX_SIZE) return await conn.sendMessage(from, { text: sizetoo }, { quoted: mek });
 if (size.includes('GB')) return await conn.sendMessage(from, { text: sizetoo }, { quoted: mek });
-let senda = await conn.sendMessage(from, { video: {url: await yt.video['240p'].download() },caption: config.FOOTER}, { quoted: mek })  
+let senda = await conn.sendMessage(from, { video: {url: await yt.video['240p'].download() },caption: setting.FOOTER}, { quoted: mek })  
 await conn.sendMessage(from, { react: { text: '🎥', key: senda.key }})
                     break;
                     default:
