@@ -371,10 +371,9 @@ async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender
 try{
 if(!q) return reply("please give me url or name🌍")
 
-const search = await fetchJson(`${apilink}/search/yt?q=${q}`)
-const data = search.result.data[0];
-const url = data.url
-    
+const search = await yts(q);
+        const data = search.videos[0];
+        const url = data.url;
     
 const ytdl = await fetchJson(`${appilink}/download/ytmp3?url=${data.url}`)
     
@@ -412,12 +411,18 @@ const vv = await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc
             if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === vv.key.id) {
                 switch (selectedOption) {
                     case '1.0':
-                        let ms = await conn.sendMessage(from, { audio: { url: ytdl.result.dl_link }, mimetype: "audio/mpeg" }, { quoted: mek })
+				let down = await fg.yta(url);
+                        let downloadUrl = down.dl_url;
+				
+                        let ms = await conn.sendMessage(from, { audio: { url:downloadUrl }, mimetype: "audio/mpeg" }, { quoted: mek })
 			  await conn.sendMessage(from, { react: { text: '✅', key: ms.key } })
                         break;
                     case '1.1':               
                         // Send Document File
-                        let mg = await conn.sendMessage(from, { document: { url: ytdl.result.dl_link }, mimetype: "audio/mpeg", fileName: data.title + ".mp3", caption: `${data.title}`}, { quoted: mek })
+
+			let downdoc = await fg.yta(url);
+                        let downloaddocUrl = downdoc.dl_url;
+                        let mg = await conn.sendMessage(from, { document: { url:downloaddocUrl }, mimetype: "audio/mpeg", fileName: data.title + ".mp3", caption: `${data.title}`}, { quoted: mek })
                         await conn.sendMessage(from, { react: { text: '✅', key: mg.key } })
                         break;
                     default:
@@ -450,9 +455,9 @@ cmd({
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
 if(!q) return reply("please give me url or name🌍")
-const search = await fetchJson(`${appilink3}/search/yt?q=${q}`)
-const data = search.result.data[0];
-const url = data.url
+const search = await yts(q);
+        const data = search.videos[0];
+        const url = data.url;
     
 const ytdl = await fetchJson(`${appilink3}/download/ytmp4?url=${data.url}`)
     
@@ -476,8 +481,8 @@ let desc = `
 ╎🔢 Reply Below Number
 ╰╾━┉╾━┉╾━┉╾━┉╾━┉╾┉━❍
 
-*0.1| Audio Type 📽️*
-*1.1| Document Type 📁*
+*1| Audio Type 📽️*
+*2| Document Type 📁*
 `
 const vv = await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc},{quoted:mek});
 
@@ -492,13 +497,13 @@ const vv = await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc
 
             if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === vv.key.id) {
                 switch (selectedOption) {
-                    case '0.1':
+                    case '1':
                         let down = await fg.ytv(url);
                         let downloadUrl = down.dl_url;
                         let ms = await conn.sendMessage(from, { video: { url:downloadUrl }, caption: '*ᴘᴀᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ*', mimetype: 'video/mp4'},{ quoted: mek });
 			  await conn.sendMessage(from, { react: { text: '✅', key: ms.key } })
                         break;
-                    case '1.1':               
+                    case '2':               
                         // Send Document File
                         let downdoc = await fg.ytv(url);
                         let downloaddocUrl = downdoc.dl_url;
