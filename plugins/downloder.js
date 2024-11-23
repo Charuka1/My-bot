@@ -461,10 +461,12 @@ try{
 if(!q) return reply("please give me url or name🌍")
 const yt2 = await  dl.youtubedl(q)
 let yt = yt2
+let size = await getsize(await yt.video['240p'].download())
 	
 const search = await yts(q);
         const data = search.videos[0];
         const url = data.url;
+	
     
 const ytdl = await fetchJson(`${appilink3}/download/ytmp4?url=${data.url}`)
     
