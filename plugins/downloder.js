@@ -459,6 +459,9 @@ cmd({
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
 if(!q) return reply("please give me url or name🌍")
+const yt2 = await  dl.youtubedl(q)
+let yt = yt2
+	
 const search = await yts(q);
         const data = search.videos[0];
         const url = data.url;
@@ -517,12 +520,8 @@ const vv = await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc
 				
                         break;
 			case '3':
-
-			if (!ytreg(q)) return await  reply(urlneed)
-const yt2 = await  dl.youtubedl(q)
-let yt = yt2
 let size = await getsize(await yt.video['240p'].download())
-if (size.includes('MB') && size.replace(' MB','') >= config.MAX_SIZE) return await conn.sendMessage(from, { text: sizetoo }, { quoted: mek });
+if (size.includes('MB') && size.replace(' MB','') >= setting.MAX_SIZE) return await conn.sendMessage(from, { text: sizetoo }, { quoted: mek });
 if (size.includes('GB')) return await conn.sendMessage(from, { text: sizetoo }, { quoted: mek });
 let senda = await conn.sendMessage(from, { video: {url: await yt.video['240p'].download() },caption: setting.FOOTER}, { quoted: mek })  
 await conn.sendMessage(from, { react: { text: '🎥', key: senda.key }})
