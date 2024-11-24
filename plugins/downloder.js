@@ -41,16 +41,15 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
     try {
         if (!q || !q.startsWith("https://")) return reply("Please provide a valid Facebook video URL!");
         const data = await fetchJson(`${baseUrl}/api/fdown?url=${q}`);
-        let desc = ` *❖ DARK-NETHU-MD FB DOWNLOADER ❖*
+        reply(`🔢 Reply Below Number
 
-💻  Github:https://github.com/project-wabot/DARK-NETHU-MD
 
-*🌟 Choose Your Download Quality*
+	      *1| Download HD Quality*
+*2| Download SD Quality*
 
-*1 Download HD Quality*
-*2 Download SD Quality*
+*ᴘᴏᴠᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ*`)
 
-> ᴘᴀᴡᴇʀᴇᴅ ʙʏ ɴᴇᴛʜᴍɪᴋᴀ ᴍᴀɪɴ`;
+
 
         const vv = await conn.sendMessage(from, { image: { url:"ඔයාගේ img එකේ url එක දෙන්න"}, caption: desc }, { quoted: mek });
         
@@ -332,12 +331,11 @@ if (!args[0]) {
     if (!urlRegex.test(args[0])) {
         throw '⚠️ PLEASE GIVE A VALID URL.';
     }
-     await reply(`\`𝗙𝗕 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘\`
+     let data = await reply(`\`𝗙𝗕 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘\`
         🔢 Reply Below Number 
 
-
-	1| 𝗦𝗗 𝗤𝗨𝗔𝗟𝗜𝗧𝗬
-        2| 𝗛𝗗 𝗤𝗨𝗔𝗟𝗜𝗧𝗬
+1| 𝗦𝗗 𝗤𝗨𝗔𝗟𝗜𝗧𝗬
+2| 𝗛𝗗 𝗤𝗨𝗔𝗟𝗜𝗧𝗬
 
  *ᴘᴏᴡᴇʀᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ*`);
     
