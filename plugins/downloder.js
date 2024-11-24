@@ -40,7 +40,7 @@ cmd({
 async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
         if (!q || !q.startsWith("https://")) return reply("Please provide a valid Facebook video URL!");
-        const data = await fetchJson(`${baseUrl}/api/fdown?url=${q}`);
+        const vv = await fetchJson(`${baseUrl}/api/fdown?url=${q}`);
         reply(`🔢 Reply Below Number
 
 
@@ -50,8 +50,6 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 *ᴘᴏᴠᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ*`)
 
 
-
-        const vv = await conn.sendMessage(from, { image: { url:"ඔයාගේ img එකේ url එක දෙන්න"}, { quoted: mek });
         
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
