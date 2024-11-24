@@ -65,7 +65,8 @@
     "child_process":"1.0.2",
     "caliph-api":"1.0.1",
      "inrl-dl":"1.0.0",
-    "fb-video-downloader": "1.0.3"
+    "fb-video-downloader": "1.0.3",
+    "ytdl-core":"4.11.5"
 
 
   }
