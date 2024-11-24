@@ -64,7 +64,8 @@
     "ruhend-scraper":"8.0.3",
     "child_process":"1.0.2",
     "caliph-api":"1.0.1",
-     "inrl-dl":"1.0.0"
+     "inrl-dl":"1.0.0",
+    "fb-video-downloader": "1.0.3"
 
 
   }
