@@ -3,7 +3,7 @@ const ytdl = require('ytdl-core'); // Used for video downloading
 const fbDownloader = require('fb-video-downloader'); // Facebook video downloader module
 
 cmd({
-    pattern: "fb",
+    pattern: "feb",
     react: "📱",
     desc: "Download Facebook videos in HD, SD or audio",
     category: "download",
