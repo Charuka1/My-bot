@@ -53,7 +53,7 @@ let cyber = `👋 HELLO ${pushname} I'm alive now
 > ᴍɪᴢᴜᴋɪ ᴍᴅ ᴄʀᴇᴀᴛᴇ ʙʏ ᴅᴀʀᴋ ᴄʀᴇᴀᴛᴏʀꜱ
  ` 
 	  
-await conn.sendMessage(from,{image:{url:"https://i.ibb.co/SsqGnFc/20240905-163614.jpg"},caption:cyber},{quoted:mek})
+await conn.sendMessage(from,{image:{url:"https://i.ibb.co/KmNqZSj/IMG-20241130-WA0043.jpg"},caption:cyber},{quoted:mek})
 
 
 
