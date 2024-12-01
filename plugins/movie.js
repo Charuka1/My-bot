@@ -8,7 +8,7 @@ const { cmd, commands } = require("../lib/command");
 const { sinhalaSub } = require("mrnima-moviedl");
 
 cmd({
-  pattern: "mv2",
+  pattern: "movies",
   alias: ["movie"],
   react: '📑',
   category: "download",
@@ -144,23 +144,23 @@ cmd({
 
     // Build options menu
     const caption = `
-    *ᴅᴀʀᴋ-ᴀʟꜰʜᴀ-ʙᴏᴛ ꜰʙ⚬*⌛ᴅᴜʀᴀᴛɪᴏɴ*
-    *Duration*: ${videoData.result.duration}
-    ╭──────────────────❖
-    │ © 𝙏𝙤 𝙙𝙤𝙬𝙣𝙡𝙤𝙖𝙙 𝙨𝙚𝙣𝙙: 🔢
+    │*ᴍɪᴢᴜᴋɪ ᴍᴅ ꜰʙ⚬*⌛ᴅᴜʀᴀᴛɪᴏɴ*
+    │*Duration*: ${videoData.result.duration}
+    │
+    │ Reply Below Number 🔢
     │
     │ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴠɪᴅᴇᴏ ꜰɪʟᴇ 🎬      
     │
-    │ _➀ *ꜱᴅ ᴍᴀʟᴀᴋᴀ-ᴍᴅ*
-    │ _➁ *ʜᴅ ᴍᴀʟᴀᴋᴀ-ᴍᴅ*
+    │ 1| *ꜱᴅ ᴍᴀʟᴀᴋᴀ-ᴍᴅ*
+    │ 2| *ʜᴅ ᴍᴀʟᴀᴋᴀ-ᴍᴅ*
     │ 
-    │ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴅᴏᴄᴜᴍᴇɴᴛ 🎧
+    │ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴅᴏᴄᴜᴍᴇɴᴛ 📁
     │
-    │ _➂ *ᴀᴜᴅɪᴏ*
-    │ _➃ *ᴅᴏᴄᴜᴍᴇɴᴛ*
-    │ _➄ *ᴠᴏɪᴄᴇ*
-    ╰──────────────────❖
-    > ᴍᴀʟᴀᴋᴀ-ᴍᴅ ʙʏ ᴅᴀʀᴋ-ᴀʟꜰʜᴀ-ʙᴏᴛ . . . 👩‍💻
+    │ 3| *ᴀᴜᴅɪᴏ*
+    │ 4| *ᴅᴏᴄᴜᴍᴇɴᴛ*
+    │ 5| *ᴠᴏɪᴄᴇ*
+    ╰────────────◉
+    *ᴍᴀʟᴀᴋᴀ-ᴍᴅ ʙʏ ᴍɪᴢᴜᴋɪ ᴍᴅ*
     `;
 
     const menuMessage = await bot.sendMessage(from, {
@@ -183,10 +183,10 @@ cmd({
 
         switch (userChoice) {
           case "1":
-            await bot.sendMessage(from, { video: { url: links.SD }, caption: ">*ᴍᴀʟᴀᴋᴀ-ᴍᴅ ʙʏ ᴅᴀʀᴋ-ᴀʟꜰʜᴀ-ʙᴏᴛ SD video." });
+            await bot.sendMessage(from, { video: { url: links.SD }, caption: "*Facebook SD video.*" });
             break;
           case "2":
-            await bot.sendMessage(from, { video: { url: links.HD }, caption: ">*ᴍᴀʟᴀᴋᴀ-ᴍᴅ ʙʏ ᴅᴀʀᴋ-ᴀʟꜰʜᴀ-ʙᴏᴛ HD video." });
+            await bot.sendMessage(from, { video: { url: links.HD }, caption: "*Facebook  HD video.*" });
             break;
           case "3":
             await bot.sendMessage(from, { audio: { url: links.SD }, mimetype: "audio/mpeg" });
