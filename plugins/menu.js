@@ -137,7 +137,7 @@ if(!commands[i].dontAddCommandList){
             if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === vv.key.id) {
                 switch (selectedOption) {
                     case '1':
-                        reply(`*● ══════════════ ●*
+                        reply(`● ══════════════ ●
 
    *MIZUKI-MD DOWNLOAD COMMANDS MENU*\n\n`
 for (let i=0;i<commands.length;i++) { 
