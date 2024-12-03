@@ -137,73 +137,103 @@ if(!commands[i].dontAddCommandList){
             if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === vv.key.id) {
                 switch (selectedOption) {
                     case '1':
-                        reply(`*◈╾──OWNER MENU──╼◈*
+                        reply(`*● ══════════════ ●*
 
-╭────────●●►
-${menuc1}╰─────────────────●●►`);
+   *MIZUKI-MD DOWNLOAD COMMANDS MENU*\n\n`
+for (let i=0;i<commands.length;i++) { 
+if(commands[i].category === 'download'){
+  if(!commands[i].dontAddCommandList){
+menuc += `*📍➣Command :* ${commands[i].pattern}
+*📃➣Desc :* ${commands[i].desc}
+*⌛➣Use:* ${commands[i].use}\n\n`);
+
+await conn.sendMessage(from, { image: { url: "https://i.ibb.co/KmNqZSj/IMG-20241130-WA0043.jpg"},  footer: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ" }, { quoted: mek });
+
                         break;
                     case '2':               
-                        reply(`*◈╾──CONVERT MENU──╼◈*
+                        reply(`*● ══════════════ ●*
 
-╭────────●●►
-${menuc2}╰─────────────────●●►`);
+   *MIZUKI-MD SEARCH COMMANDS MENU*\n\n`
+for (let i=0;i<commands.length;i++) { 
+if(commands[i].category === 'search'){
+  if(!commands[i].dontAddCommandList){
+menuc += `*📍➣Command :* ${commands[i].pattern}
+*📃➣Desc :* ${commands[i].desc}
+*⌛➣Use:* ${commands[i].use}\n\n`);
+
+await conn.sendMessage(from, { image: { url: "https://i.ibb.co/KmNqZSj/IMG-20241130-WA0043.jpg"},  footer: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ" }, { quoted: mek });
+
                         break;
                     case '3':               
-                        reply(`*◈╾──────AI MENU──────╼◈*
+                        reply(`*● ══════════════ ●*
 
-╭────────●●►
-${menuc3}╰─────────────────●●►`);
+   *MIZUKI-MD CONVERT COMMANDS MENU*\n\n`
+for (let i=0;i<commands.length;i++) { 
+if(commands[i].category === 'convert'){
+  if(!commands[i].dontAddCommandList){
+menuc += `*📍➣Command :* ${commands[i].pattern}
+*📃➣Desc :* ${commands[i].desc}
+*⌛➣Use:* ${commands[i].use}\n\n`);
+
+await conn.sendMessage(from, { image: { url: "https://i.ibb.co/KmNqZSj/IMG-20241130-WA0043.jpg"},  footer: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ" }, { quoted: mek });
+
                         break;
                     case '4':               
-                        reply(`*◈╾───SEARCH MENU───╼◈*
+                        reply(`*● ══════════════ ●*
 
-╭────────●●►
-${menuc4}╰─────────────────●●►`);
+   *MIZUKI-IZUMI-MD LOGO COMMANDS MENU*\n\n`
+for (let i=0;i<commands.length;i++) { 
+if(commands[i].category === 'logo'){
+if(!commands[i].dontAddCommandList){
+menuc += `*📍➣Command :* ${commands[i].pattern}
+*📃➣Desc :* ${commands[i].desc}
+*⌛➣Use:* ${commands[i].use}\n\n`);
+
+await conn.sendMessage(from, { image: { url: "https://i.ibb.co/KmNqZSj/IMG-20241130-WA0043.jpg"},  footer: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ" }, { quoted: mek });
+
                         break;
                     case '5':               
-                        reply(`*◈╾───DOWNLOADE MENU──╼◈*
+                        reply(`*● ══════════════ ●*
 
-╭────────●●►
-${menuc5}╰─────────────────●●►`);
+   *MIZUKI-MD OWNER COMMANDS MENU*\n\n`
+for (let i=0;i<commands.length;i++) { 
+if(commands[i].category === 'owner'){
+if(!commands[i].dontAddCommandList){
+menuc += `*📍➣Command :* ${commands[i].pattern}
+*📃➣Desc :* ${commands[i].desc}
+*⌛➣Use:* ${commands[i].use}\n\n`);
+
+await conn.sendMessage(from, { image: { url: "https://i.ibb.co/KmNqZSj/IMG-20241130-WA0043.jpg"},  footer: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ" }, { quoted: mek });
+
                         break;
                     case '6':               
-reply(`*◈╾──ANIME MENU──╼◈*
+reply(`*● ══════════════ ●*
 
-╭────────●●►
-${menuc6}╰─────────────────●●►`);
+   *MIZUKI-MD ADMIN COMMANDS MENU*\n\n`
+for (let i=0;i<commands.length;i++) { 
+if(commands[i].category === 'admin'){
+if(!commands[i].dontAddCommandList){
+menuc += `*📍➣Command :* ${commands[i].pattern}
+*📃➣Desc :* ${commands[i].desc}
+*⌛➣Use:* ${commands[i].use}\n\n`);
+
+await conn.sendMessage(from, { image: { url: "https://i.ibb.co/KmNqZSj/IMG-20241130-WA0043.jpg"},  footer: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ" }, { quoted: mek });
+
                         break;
                     case '7':               
-                        reply(`*◈╾──MAIN MENU─────╼◈*
+                        reply(`*● ══════════════ ●*
 
-╭────────●●►
-${menuc7}╰─────────────────●●►`);
+   * MIZUKI-MD OTHER COMMANDS MENU*\n\n`
+for (let i=0;i<commands.length;i++) { 
+if(commands[i].category === 'other'){
+if(!commands[i].dontAddCommandList){
+menuc += `*📍➣Command :* ${commands[i].pattern}
+*📃➣Desc :* ${commands[i].desc}
+*⌛➣Use:* ${commands[i].use}\n\n`);
+
+await conn.sendMessage(from, { image: { url: "https://i.ibb.co/KmNqZSj/IMG-20241130-WA0043.jpg"},  footer: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ" }, { quoted: mek });
+
                        break;
-                    case '8':               
-                        reply(`*◈╾──GROUP MENU──╼◈*
-
-╭────────●●►
-${menuc8}╰─────────────────●●►`);
-
-
-                        
-                    break;
-                    case '9':               
-                        reply(`*◈╾──FUN MENU──╼◈*
-
-╭────────●●►
-${menuc9}╰─────────────────●●►`);
-
-
-                    break;
-                    case '10':               
-                        reply(`*◈╾──OTHER MENU──╼◈*
-
-╭────────●●►
-${menuc10}╰─────────────────●●►`);
-
-
-
-                        break;
                     default:
                         reply("Invalid option. Please select a valid option🔴");
                 }
