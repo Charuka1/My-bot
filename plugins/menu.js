@@ -161,9 +161,7 @@ menuc += `*📍➣Command :* ${commands[i].pattern}
 *📃➣Desc :* ${commands[i].desc}
 *⌛➣Use:* ${commands[i].use}\n\n`;
 
-await conn.sendMessage(from, { image: { url: "https://i.ibb.co/KmNqZSj/IMG-20241130-WA0043.jpg"},  footer: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ" }, { quoted: mek });
-
-                        break;
+                  break;
                     case '3':               
                         reply`*● ══════════════ ●*
 
@@ -175,9 +173,7 @@ menuc += `*📍➣Command :* ${commands[i].pattern}
 *📃➣Desc :* ${commands[i].desc}
 *⌛➣Use:* ${commands[i].use}\n\n`;
 
-await conn.sendMessage(from, { image: { url: "https://i.ibb.co/KmNqZSj/IMG-20241130-WA0043.jpg"},  footer: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ" }, { quoted: mek });
-
-                        break;
+                break;
                     case '4':               
                         reply`*● ══════════════ ●*
 
