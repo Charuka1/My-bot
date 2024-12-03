@@ -151,7 +151,7 @@ await conn.sendMessage(from, { image: { url: "https://i.ibb.co/KmNqZSj/IMG-20241
 
                         break;
                     case '2':               
-                        reply(`*● ══════════════ ●*
+                        reply`*● ══════════════ ●*
 
    *MIZUKI-MD SEARCH COMMANDS MENU*\n\n`
 for (let i=0;i<commands.length;i++) { 
@@ -159,13 +159,13 @@ if(commands[i].category === 'search'){
   if(!commands[i].dontAddCommandList){
 menuc += `*📍➣Command :* ${commands[i].pattern}
 *📃➣Desc :* ${commands[i].desc}
-*⌛➣Use:* ${commands[i].use}\n\n`);
+*⌛➣Use:* ${commands[i].use}\n\n`;
 
 await conn.sendMessage(from, { image: { url: "https://i.ibb.co/KmNqZSj/IMG-20241130-WA0043.jpg"},  footer: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ" }, { quoted: mek });
 
                         break;
                     case '3':               
-                        reply(`*● ══════════════ ●*
+                        reply`*● ══════════════ ●*
 
    *MIZUKI-MD CONVERT COMMANDS MENU*\n\n`
 for (let i=0;i<commands.length;i++) { 
@@ -173,13 +173,13 @@ if(commands[i].category === 'convert'){
   if(!commands[i].dontAddCommandList){
 menuc += `*📍➣Command :* ${commands[i].pattern}
 *📃➣Desc :* ${commands[i].desc}
-*⌛➣Use:* ${commands[i].use}\n\n`);
+*⌛➣Use:* ${commands[i].use}\n\n`;
 
 await conn.sendMessage(from, { image: { url: "https://i.ibb.co/KmNqZSj/IMG-20241130-WA0043.jpg"},  footer: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ" }, { quoted: mek });
 
                         break;
                     case '4':               
-                        reply(`*● ══════════════ ●*
+                        reply`*● ══════════════ ●*
 
    *MIZUKI-IZUMI-MD LOGO COMMANDS MENU*\n\n`
 for (let i=0;i<commands.length;i++) { 
@@ -187,13 +187,13 @@ if(commands[i].category === 'logo'){
 if(!commands[i].dontAddCommandList){
 menuc += `*📍➣Command :* ${commands[i].pattern}
 *📃➣Desc :* ${commands[i].desc}
-*⌛➣Use:* ${commands[i].use}\n\n`);
+*⌛➣Use:* ${commands[i].use}\n\n`;
 
 await conn.sendMessage(from, { image: { url: "https://i.ibb.co/KmNqZSj/IMG-20241130-WA0043.jpg"},  footer: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ" }, { quoted: mek });
 
                         break;
                     case '5':               
-                        reply(`*● ══════════════ ●*
+                        reply`*● ══════════════ ●*
 
    *MIZUKI-MD OWNER COMMANDS MENU*\n\n`
 for (let i=0;i<commands.length;i++) { 
@@ -201,13 +201,13 @@ if(commands[i].category === 'owner'){
 if(!commands[i].dontAddCommandList){
 menuc += `*📍➣Command :* ${commands[i].pattern}
 *📃➣Desc :* ${commands[i].desc}
-*⌛➣Use:* ${commands[i].use}\n\n`);
+*⌛➣Use:* ${commands[i].use}\n\n`;
 
 await conn.sendMessage(from, { image: { url: "https://i.ibb.co/KmNqZSj/IMG-20241130-WA0043.jpg"},  footer: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ" }, { quoted: mek });
 
                         break;
                     case '6':               
-reply(`*● ══════════════ ●*
+reply`*● ══════════════ ●*
 
    *MIZUKI-MD ADMIN COMMANDS MENU*\n\n`
 for (let i=0;i<commands.length;i++) { 
@@ -215,13 +215,13 @@ if(commands[i].category === 'admin'){
 if(!commands[i].dontAddCommandList){
 menuc += `*📍➣Command :* ${commands[i].pattern}
 *📃➣Desc :* ${commands[i].desc}
-*⌛➣Use:* ${commands[i].use}\n\n`);
+*⌛➣Use:* ${commands[i].use}\n\n`;
 
 await conn.sendMessage(from, { image: { url: "https://i.ibb.co/KmNqZSj/IMG-20241130-WA0043.jpg"},  footer: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ" }, { quoted: mek });
 
                         break;
                     case '7':               
-                        reply(`*● ══════════════ ●*
+                        reply`*● ══════════════ ●*
 
    * MIZUKI-MD OTHER COMMANDS MENU*\n\n`
 for (let i=0;i<commands.length;i++) { 
@@ -229,7 +229,7 @@ if(commands[i].category === 'other'){
 if(!commands[i].dontAddCommandList){
 menuc += `*📍➣Command :* ${commands[i].pattern}
 *📃➣Desc :* ${commands[i].desc}
-*⌛➣Use:* ${commands[i].use}\n\n`);
+*⌛➣Use:* ${commands[i].use}\n\n`;
 
 await conn.sendMessage(from, { image: { url: "https://i.ibb.co/KmNqZSj/IMG-20241130-WA0043.jpg"},  footer: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ" }, { quoted: mek });
 
