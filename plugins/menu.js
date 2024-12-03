@@ -137,7 +137,7 @@ if(!commands[i].dontAddCommandList){
             if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === vv.key.id) {
                 switch (selectedOption) {
                     case '1':
-                        reply(`● ══════════════ ●
+                        reply`● ══════════════ ●
 
    *MIZUKI-MD DOWNLOAD COMMANDS MENU*\n\n`
 for (let i=0;i<commands.length;i++) { 
@@ -145,7 +145,7 @@ if(commands[i].category === 'download'){
   if(!commands[i].dontAddCommandList){
 menuc += `*📍➣Command :* ${commands[i].pattern}
 *📃➣Desc :* ${commands[i].desc}
-*⌛➣Use:* ${commands[i].use}\n\n`);
+*⌛➣Use:* ${commands[i].use}\n\n`;
 
 await conn.sendMessage(from, { image: { url: "https://i.ibb.co/KmNqZSj/IMG-20241130-WA0043.jpg"},  footer: "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ ᴄʜᴀʀᴜᴋᴀ" }, { quoted: mek });
 
